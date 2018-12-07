@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        var ws;
+{#        var localIP = document.getElementById('box');#}
+{#        var dx = $('#messageList');#}
+
+        function startWS() {
+            console.log('will connect:', document.getElementById('box').innerHTML);
+
+            ws = new WebSocket('ws://' + document.getElementById('box').innerHTML + ':9913');
+            ws.onopen = function (msg) {
+                console.log('WebSocket opened');
+            };
+            ws.onmessage = function (message) {
+                console.log('receive message: ' + message.data);
+                document.getElementById("La_R").innerHTML = message.data;
+                document.getElementById("messageList").innerHTML +=('<p>' + message.data + '</p>');
+            };
+            ws.onerror = function (error){
+                console.log('Error: ' + error.name + error.number);
+            };
+            ws.onclose = function () {
+                console.log('WebSocket closed!');
+            };
+        }
+
+        function sendMessage() {
+            console.log('Sending a message...');
+            var text = document.getElementById('message');
+            if(ws.readyState==1){
+                ws.send(text.value);
+            } else {
+                console.log('WebSocket has Closed!');
+            }
+        }
+        function CloseSocket() {
+            console.log('Close My Socket');
+            if(ws.readyState==1){
+                ws.close();
+            }
+        }
+        window.onbeforeunload = function () {
+            ws.onclose = function () {};
+            ws.close();
+        }
+    </script>
+</head>
+<body>
+<p id="box">127.0.0.1</p>
+<br>
+<input type="text" id="message" value="Hello world!!"/>
+<button type="button" id="BtnConn" style="height: 30px;width: 100px" onclick="startWS()">连接</button>
+<button type="button" id="BtnSend" style="height: 30px;width: 100px" onclick="sendMessage()">发送</button>
+<button type="button" id="BtnClose" style="height: 30px;width: 100px" onclick="CloseSocket()">关闭</button>
+<br/>
+<h3>接收远程socket内阻结果</h3>
+<h5 id="La_R">内阻值</h5>
+<h3>接收信息</h3>
+<div id="messageList">
+
+</div>
+</body>
+</html>

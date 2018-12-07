@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>django-websocket</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">//<![CDATA[
+        $(function () {
+            $('#send_message').click(function () {
+                var socket = new WebSocket("ws://" + window.location.host + "/raspConn/");
+                socket.onopen = function () {
+                    console.log('WebSocket open');
+                    socket.send($('#message').val());
+                };
+                socket.onmessage = function (e) {
+                    console.log('message: ' + e.data);
+                    $('#messagecontainer').prepend('<p>' + e.data+'</p>');
+                };
+            });
+        });
+    </script>
+</head>
+<body>
+    <br>
+    <input type="text" id="message" value="Hello,World!">
+    <button type="button" id="send_message">发送 message</button>
+    <h1>Received Messages</h1>
+    <div id="messagecontainer"></div>
+</body>
+</html>

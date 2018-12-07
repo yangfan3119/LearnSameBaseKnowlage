@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket_conn_send_close</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#BtnConn').click(function () {
+                if(window.s){
+                    window.s.close();
+                }
+                var ipaddr = window.location.host;
+                var socket = new WebSocket("ws://"+ipaddr+"/NewWebSk/");
+                socket.onopen = function () {
+                    $('#messageList').prepend('<p>连接成功</p>');
+                    window.s.send('ConnSucc');
+                };
+                socket.onmessage = function (e) {
+{#                    if(e.data.left(4)){#}
+                        document.getElementById("La_R").innerHTML=e.data;
+                        $('#messageList').prepend('<p> Addit' + e.data + '</p>');
+{#                    }#}
+                    $('#messageList').prepend('<p>' + e.data.text.left(4) + '</p>');
+                };
+                if (socket.readyState == WebSocket.OPEN) socket.onopen();
+                window.s = socket;
+            });
+            $('#BtnSend').click(function () {
+                $('#messageList').prepend('<p>Send: </p>');
+                if(!window.s){
+                    $('#messageList').prepend('<p>未连接</p>');
+                }else{
+                    window.s.send($('#message').val());
+                }
+            });
+            $('#BtnClose').click(function () {
+                if(window.s) {
+                    window.s.send('Disconnect');
+                }
+                if(window.s){
+                    window.s.close()
+                    $('#messageList').prepend('<p>连接关闭</p>');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="text" id="message" value="Hello world!!"/>
+<button type="button" id="BtnConn">连接</button>
+<button type="button" id="BtnSend">发送</button>
+<button type="button" id="BtnClose">关闭</button>
+<br/>
+<h3>接收远程socket内阻结果</h3>
+<h5 id="La_R">内阻值</h5>
+<h3>接收信息</h3>
+<div id="messageList">
+
+</div>
+</body>
+</html>
