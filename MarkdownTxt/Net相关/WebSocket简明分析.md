@@ -10,7 +10,7 @@ WebSocket，HTTP协议的一部分，在原有的短连接或者说一问一答�
 因项目需求使用python开发，因为Web端就是用Django开发的，所以。。。
 
 1. python上开发WebSocket，网上查到的是使用**dwebsocket**库来开发，网上学习了一种使用方式，发现有很多异常无法处理，而且网上的样例实在匮乏，再加上我Web开发短板太多，或者对我而言理解它的使用方式太慢。综上，弃用
-  [**dwebsocket库样例连接**](https://www.cnblogs.com/huguodong/p/6611602.html)
+    [**dwebsocket库样例连接**](https://www.cnblogs.com/huguodong/p/6611602.html)
 
 2. WebSocket在python上的另一种开发方式，直接使用Socket开发，我们很清楚的知道WebSocket是建立在HTTP上使用TCP协议做的开发，基于此我们完全可以使用Socket来进行WebSocket的开发，区别于C/S模式的开发在于WebSockt的协议上，需要遵循它的标准协议进行连接和通信。**以下我将叙述使用该方式的开发过程**
 ***
@@ -202,7 +202,11 @@ def mask_or_unmask(mask, data):
 ### 4.3 关于代码
 关于websocket协议所有的代码均可以在dwebsocket库中找到，尤其是protocols.py文件中，所以详细代码我这边就不提供了，理解了协议内容，即使用C#或者C++或者java等其他开发语言开发也不在话下。
 
-
-
 ---
+
+## 五、WebSocket是建立在TCP的基础上的，因此TCP上则有
+
+```mermaid
+
+```
 
