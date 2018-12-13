@@ -204,9 +204,36 @@ def mask_or_unmask(mask, data):
 
 ---
 
-## 五、WebSocket是建立在TCP的基础上的，因此TCP上则有
+## 五、WebSocket拓展
 
-```mermaid
+WebSocket类似HTTP协议，是为了弥补HTTP协议的缺陷：通信只能有客户端发起，HTTP协议做不到服务器主动向客户端推送信息。
 
-```
+WebSocket协议诞生于2008年，2011年成为国际标准。当前基本所有浏览器都支持了，但存在版本的差异
+
+WebSocket最大特点就是，服务器可以主动向客户端推送消息，客户端也可以主动向服务器推送消息，实现真正的平等对话，始于服务器推送技术的一种。
+
+![WebSocket和HTTP的协议握手交互](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\1287779-20180404165107083-997801929.png)
+
+其他特点包括：
+（1）建立在 TCP 协议之上，服务器端的实现比较容易。
+（2）与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。
+（3）数据格式比较轻量，性能开销小，通信高效。
+（4）可以发送文本，也可以发送二进制数据。
+（5）没有同源限制，客户端可以与任意服务器通信。
+（6）协议标识符是ws（如果加密，则为wss），服务器网址就是 URL。
+
+![HTTP类型和WebSocket类型](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\1287779-20180404165618881-1720601312.png)
+
+**对于低端不支持WebSocket的浏览器，一般有几个解决方案：**
+
+1. 使用轮询或长连接的方式实现伪WebSocket的通信
+2. 使用flash或其他方法实现一个[websocket客户端](https://segmentfault.com/q/1010000005000671/a-1020000005003936).
+
+3. 创建一个Web socket，[链接使用java开发](https://blog.csdn.net/u011925826/article/details/17532465)
+
+#### 5.1 WebSocket学习笔记——关于不同环境的兼容性问题
+
+https://www.cnblogs.com/bluedoctor/p/3534087.html
+
+后续分析和解决
 
