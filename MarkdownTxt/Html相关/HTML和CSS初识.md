@@ -36,7 +36,11 @@
 
 - **结构上**
 
-  以*\<!DOCTYPE HTML\>*开头说明页面信息的属性为HTML类型；\<html\>...\</html\>作为总的html结构包起所有的页面元素信息；包含两个主体：**head**和**body**。head作为环境变量以及后台相关程序及设置。而body为显式的语义化信息，是页面元素的主体。
+  以*\<!DOCTYPE HTML\>*开头说明页面信息的属性为HTML类型；
+
+  \<html\>...\</html\>作为总的html结构包起所有的页面元素信息；
+
+  包含两个主体：**head**和**body**。head作为环境变量以及后台相关程序及设置。而body为显式的语义化信息，是页面元素的主体。
 
 - **联系上**
 
@@ -92,7 +96,6 @@
         <li>2.1项</li>
     </ol>
 </ul>
-
 ----
 
 **表格**
@@ -122,7 +125,6 @@ table tr td,th{border:1px solid #000;}	<!-- 给每一个单元格添加1个像�
         <td>28</td>
     </tr>
 </table>
-
 ---
 
 
@@ -141,7 +143,6 @@ target="_blank" 含义为在新窗口中打开网页
     <li><a href="#" title="零基础学习html">零基础html</a></li>
     <li><a href="#" title="JavaScript全攻略">JavaScript全攻略</a></li>
 </ul>
-
 ---
 
 
