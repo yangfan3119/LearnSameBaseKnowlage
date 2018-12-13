@@ -212,7 +212,7 @@ WebSocket协议诞生于2008年，2011年成为国际标准。当前基本所有
 
 WebSocket最大特点就是，服务器可以主动向客户端推送消息，客户端也可以主动向服务器推送消息，实现真正的平等对话，始于服务器推送技术的一种。
 
-![WebSocket和HTTP的协议握手交互](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\1287779-20180404165107083-997801929.png)
+![WebSocket和HTTP的协议握手交互](..\mdPic\1287779-20180404165107083-997801929.png)
 
 其他特点包括：
 （1）建立在 TCP 协议之上，服务器端的实现比较容易。
@@ -222,7 +222,7 @@ WebSocket最大特点就是，服务器可以主动向客户端推送消息，�
 （5）没有同源限制，客户端可以与任意服务器通信。
 （6）协议标识符是ws（如果加密，则为wss），服务器网址就是 URL。
 
-![HTTP类型和WebSocket类型](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\1287779-20180404165618881-1720601312.png)
+![HTTP类型和WebSocket类型](..\mdPic\1287779-20180404165618881-1720601312.png)
 
 **对于低端不支持WebSocket的浏览器，一般有几个解决方案：**
 
