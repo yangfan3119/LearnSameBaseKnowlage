@@ -319,7 +319,7 @@ socket = 127.0.0.1:5000
 daemonize = %(chdir)/Server.log
 home = /home/lto/PyEnvs/py3FlaskEnv
 buffer-size = 65535
-chmod-socket = 664
+chmod-socket = 666	# 套接字权限
 #uwsgi_read_timeout = 600
 #plugin=python
 
@@ -390,7 +390,227 @@ fun = FuncX()
 
 
 
-## 三、Flask使用websocket应用
+## 三、使用Ajax动态刷新
+
+### 3.1 基本样式
+
+```html
+$.ajax({
+    url: '/ajaxLong',	<!-- url返回地址 -->
+    type: 'GET',	<!-- 返回数据类型 -->
+    data: {info: indx, pageId:pageId},	<!-- 返回数据 -->
+    dataType: 'JSON',	<!-- 接收数据类型 -->
+    success:function (res) {	<!-- 接收数据处理 -->
+        if(res.enable==true)
+        {	<!-- res = {'subTime':' ', 'count':'  '} JSON格式数据直接取元素值-->
+         	res.subTime + ' ---- ' + res.count;
+        }
+    },
+    error:function (request, status, error) {
+		<!-- 错误异常数据捕获 -->
+    }
+})
+```
+
+备注，ajax属于*JavaScript*实现的，因此必须加上引用连接
+
+```html
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+```
+
+### 3.2 轮询
+
+​	**轮询**的基本使用方式就是*Web端定时发送请求获取值更新页面数据。*
+
+```html
+<!-- 核心语句 -->
+window.setInterval(Start,2000);
+<!-- Start为函数，无参数传递 -->
+<!-- 2000位Timeout值，单位毫秒，此处为2秒 -->
+```
+
+​	Ajax轮询为：
+
+```html
+window.setInterval(function f(){$.ajax(getting)}, 2000)
+```
+
+### 3.3 长轮询
+
+​	**长轮询**实则为ajax单次轮询的嵌套，在获取本次结果后在执行一次请求，类似递归式的嵌套。该处理的特点是，后一次的请求必须是以前一次请求获取到结果后才发出，即没结果的时候，web服务器端可以先挂起，等到有结果了再返回结果，如果超时则再发送一次请求，如下：
+
+```html
+function Start() {
+    var pageId = document.getElementById("pageId").innerText;
+    var indx = document.getElementById("XHR_Info").innerText;
+    $.ajax({
+        url: '/ajaxLong',
+        type: 'GET',
+        data: {info: indx, pageId:pageId},
+        dataType: 'JSON',
+        success:function (res) {
+            if(res.enable==true)
+            {
+                = res.subTime + ' ---- ' + res.count;
+                Start();	<!-- 获取到结果并处理完后立刻再发一次请求 -->
+            }
+        },
+        error:function (request, status, error) {
+        	Start();  <!-- 超时或异常时，则立刻再发一次请求 -->
+        }
+    })
+}
+```
+
+**改良版本：**
+
+在单次请求获取后，在定时发送一次请求：
+
+```html
+$.ajax({
+    ...
+    success:function (res) {	<!-- 接收数据处理 -->
+		setTimeout(Start, 2000);
+    },
+    error:function (request, status, error) {
+		<!-- 错误异常数据捕获 -->
+		setTimeout(Start, 2000);
+    }
+})
+```
+
+### 3.4 后台程序说明
+
+```python
+from gevent import monkey
+from flask import Flask, render_template, request, jsonify
+import os
+import uuid			#生成唯一标识码
+from time import sleep		#延时
+from FuncX import FuncX
+# 异步响应，默认为同步相应即前一个请求阻塞时，后一个请求则强制阻塞
+monkey.patch_all()
+
+app = Flask(__name__)
+basedir = os.path.dirname(__file__)  # 当前文件所在路径
+fun = FuncX()
+CommInfo = fun.XXXX()
+AjaxStatus = True
+
+QUEQUE_DICT = {
+    # 'xxxxxxxx':Queue()
+}
+DATA_SHOW = {
+    "subTime" : "123",
+    "count" : "abc",
+    "enable" : False,
+}
+
+def AddAndPrintUUID(userid):
+    if userid not in QUEQUE_DICT:
+        QUEQUE_DICT[userid] = 0
+    else:
+        QUEQUE_DICT[userid] += 1
+    print(userid, QUEQUE_DICT[userid])
+    return QUEQUE_DICT[userid]
+
+def UnifyPageIDByUUID(userid):
+    if userid not in QUEQUE_DICT:
+        QUEQUE_DICT[userid] = 0
+    for k in QUEQUE_DICT.keys():
+        QUEQUE_DICT[k] = QUEQUE_DICT[userid]
+
+def SetDATAs(p1,p2,p3):
+    DATA_SHOW['subTime'] = str(p1)
+    DATA_SHOW['count'] = str(p2)
+    DATA_SHOW["enable"] = p3
+    print(DATA_SHOW)
+    return jsonify(DATA_SHOW)	# JSON格式数据发送
+
+@app.route('/')
+def hello_world():
+    id = str(uuid.uuid4())[:5]
+    return render_template('h_ajax_long.html', pageID = id)
+
+@app.route('/ajaxLong', methods=['GET'])
+def ajaxLong():
+    num = fun.Get_Reload()
+    try:
+        print(request.values.get('info'))
+        da = int(str(request.values.get('info')).split('----')[0])
+    except:
+        da = -1
+    print("第%d次进入 S" % (num), da, fun.GetBias())
+    while not fun.CheckX(da):
+        pass
+    print('Out Result!')
+    return SetDATAs(str(fun.GetCount()), AddAndPrintUUID(request.values.get('pageId')), AjaxStatus)
+
+@app.route('/pageID_unify', methods=['GET'])
+def pageID_unify():
+    UnifyPageIDByUUID(request
+                      .values.get('pageId'))
+    return '成功'
+```
+
+### 3.5 使用ajax发送button请求
+
+```html
+<script>
+function BtnComm(th) {
+            $.ajax({
+                url: th.value,
+                type: 'GET',
+                dataType: 'text',
+                success:function(succtx) {
+
+                }
+            })
+        }
+</script>
+...
+<button type="button" value="/ajaxStop"  onclick="BtnComm(this)">停止</button>
+```
+
+```python
+@app.route('/ajaxStart', methods=['GET'])
+def ajaxStart():
+    global AjaxStatus
+    AjaxStatus = True
+    return '..'
+
+@app.route('/ajaxStop', methods=['GET'])
+def ajaxStop():
+    global AjaxStatus
+    AjaxStatus = False
+    return '..'
+```
+
+### 3.6 实操问题
+
+​	再用IE访问目标页面时，通过button提交请求。发现服务器并未接收到请求。
+
+​	*F12*进入开发界面，通过分析请求以及回复情况表得知：**该button第一次请求获取了实际结果，但之后的请求均未发出而是使用缓存数据。**这显然与我们的需求不一致。经查询后得知原委：
+
+```
+	我们都知道IE会针对ajax请求的地址缓存请求结果,直到缓存过期之前,针对相同地址发出的请求,只有第一次会请求会真正发送到服务端.在某种情况下,这种缓存机制确实能提高web的响应速度,但是有时候并不是我们需要的,有时候我们需要获取即时信息,那么有哪几种方式来解决这个问题呢,下面列举了几种解决方案!
+1. 通过URL添加后缀的方式
+例如:
+本来请求的地址是: /home/action?
+加查询参数后缀后:/home/action?ran=Match.Random();
+2. 通过Jquery的Ajax  API设置相关属性
+<script type="text/javascript">
+        var LoadTime = function () {
+			$.ajaxSetup({ cache: false });	# **重点就是这一句**
+            $.ajax({
+                url: '@Url.Action("currTime")',
+                success: function (result) {
+                    $("#currTime").html(result);
+                }
+            })
+        }
+</script>
+```
 
 
 
