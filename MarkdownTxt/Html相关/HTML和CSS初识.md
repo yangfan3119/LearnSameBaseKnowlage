@@ -100,12 +100,6 @@
 
 **表格**
 
-```html
-<style type="text/css">
-table tr td,th{border:1px solid #000;}	<!-- 给每一个单元格添加1个像素的黑边框 -->
-</style>
-```
-
 
 <table summary="summary记录的是表格的摘要">
   <caption>作为表格的标题而存在</caption>
@@ -127,8 +121,6 @@ table tr td,th{border:1px solid #000;}	<!-- 给每一个单元格添加1个像�
 </table>
 ---
 
-
-
 #### 2.4 标签——链接
 
 **超链接\<a>**
@@ -145,9 +137,34 @@ target="_blank" 含义为在新窗口中打开网页
 </ul>
 ---
 
+#### 2.5 定义列表
 
+`<dl>`英文单词：definition list，没有属性。dl的子元素只能是dt和dd。
 
+- `<dt>`：definition title 列表的标题，这个标签是必须的
+- `<dd>`：definition description 列表的列表项，如果不需要它，可以不加
 
+<dl>
+	<dt>购物指南</dt>
+	<dd>
+		<a href="#">购物流程</a>
+		<a href="#">会员介绍</a>
+		<a href="#">生活旅行/团购</a>
+		<a href="#">常见问题</a>
+		<a href="#">大家电</a>
+		<a href="#">联系客服</a>
+	</dd>
+</dl>
+<dl>
+	<dt>配送方式</dt>
+	<dd>
+		<a href="#">上门自提</a>
+		<a href="#">211限时达</a>
+		<a href="#">配送服务查询</a>
+		<a href="#">配送费收取标准</a>
+		<a href="#">海外配送</a>
+	</dd>
+</dl>
 
 
 
