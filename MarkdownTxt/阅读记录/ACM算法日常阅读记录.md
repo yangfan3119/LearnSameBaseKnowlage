@@ -244,13 +244,254 @@ if __name__=="__main__":
 
 **step2**：如果是字母， 直接输出
 
+### 1.4 回溯
+
+消防车Firetruck(DFS+回溯）- UVA 208
+
+```c++
+#include <iostream>
+#include <cstring>
+#include <cstdio>
+using namespace std;
+const int maxn=21+4;
+int map[maxn][maxn]={0};//用来存储地图
+int mark[maxn];//用来记录走过的点，以便输出
+bool m[maxn];//用来记忆该点有没有被访问过
+int n,ans1;//ans1记录总共有多少条路径
+void dfs(int x,int ans)//x表示所在的地点，ans表示这是去到的第几个地点
+{
+    if(x==n)
+    {
+        ans1++;
+        cout<<'1';
+        for(int i=1;i<ans;i++)
+            cout<<' '<<mark[i];
+        cout<<endl;return ;
+    }
+    for(int i=2;i<maxn;i++)//从2开始逐个搜索，因为是从1出发，不能再回到1
+        if(map[x][i]==1&&!m[i])//如果i点与x点连通，而且i点没被访问过
+        {
+            mark[ans]=i;m[i]=true;
+            dfs(i,ans+1);
+            m[i]=false;
+        }
+    return ;
+}
+int main()
+{
+    //freopen("text.txt","r",stdin);//文件输入
+    int cnt=1;
+    while(cin>>n)
+    {
+        memset(map,0,sizeof(map));//一轮下来，有些数据要被重置
+        int x=1,y=1;
+        ans1=0;//重置
+        while(true)
+        {
+            cin>>x>>y;
+            if(x==0||y==0)break;
+            map[x][y]=map[y][x]=1;//构建矩阵地图
+        }
+        cout<<"CASE "<<cnt++<<":"<<endl;
+        dfs(1,1);
+        cout<<"There are "<<ans1<<" routes from the firestation to streetcorner "<<n<<"."<<endl;
+    }
+    return 0;
+}
+```
+
+```python
+import numpy as np
+
+f1 = [(1, 2), (1, 3), (3, 4), (3, 5), (4, 6), (5, 6), (2, 3), (2, 4)]
+f2 = [(2, 3), (3, 4), (5, 1), (1, 6), (7, 8), (8, 9), (2, 5), (5, 7), (3, 1), (1, 8), (4, 6), (6, 9)]
+
+InputDa = [{'n': 6, 'da': f1}, {'n': 4, 'da': f2}]
+
+
+class Firetruck_DFS:
+
+    def __init__(self):
+        self.map = np.zeros(1)
+        self.old = []
+        self.finish = 0
+        self.ans_i = 0
+
+    def initParam(self):
+        self.old = []
+        self.finish = 0
+        self.ans_i = 0
+
+    def CreateMap(self, n, fx):
+        self.map = np.zeros((21, 21), dtype=int)
+        for a,b in fx:
+            self.map[a][b] = self.map[b][a] = 1
+
+    def Run(self, n, fx):
+        self.initParam()
+        self.CreateMap(n+1, fx)
+        # print('n= %d, da='%(n), fx)
+        self.finish = n
+        self.dfs(1)
+
+    def dfs(self, now):
+        if now == self.finish:
+            s = '1'
+            for x in self.old:
+                  s += ' %d'%(x)
+            self.ans_i += 1
+            print('%d : (%s)'%(self.ans_i, s))
+        else:
+            for i in range(2, 21):
+                if self.map[now][i] == 1 and i not in self.old:
+                    self.old.append(i)
+                    self.dfs(i)
+                    self.old.remove(i)
+
+
+if __name__=="__main__":
+    d = Firetruck_DFS()
+    for dicx in InputDa:
+        k, v = dicx['n'], dicx['da']
+        print(k, v)
+        d.Run(k, v)
+```
+
+### 1.5 递推
+
+计算折线型连接下点与点的距离（即沿折线走的路线长度）吧。
+
+![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\640-1554974073832.webp)
+
+对于第一步来说，比较难的地方在于如何计算距离，这里的距离分为两个部分，一部分是45度的斜线，另一部分是从点(n,0)到点(0, n+1)的长度，归纳起来可以自己画个图，参考代码注释很容易就能明白了。
+
+```c
+#include<stdio.h>
+#include<math.h>
+
+double distance(int x, int y)
+{
+    double dis = 0;
+    double segment = sqrt(2.0);
+
+    //45度线的总和
+    for (int i = 1; i <= x + y; i++)
+        dis += (i * segment);
+
+    //减去多加的最后一部分
+    dis -= (y * segment);
+
+    //加上斜线的总和（包括第一条竖线）
+    //勾股定理
+    for (int i = 0; i < x + y; i++)
+        dis += sqrt((double)i * i + (double)(i + 1) * (i + 1));
+
+    return dis;
+}
+
+int main()
+{
+    int count, x1, x2, y1, y2;
+    scanf("%d", &count);
+
+    while (count--)
+    {
+        scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
+        //递推算法
+        //先计算从(0,0)到(x,y)的距离
+        //再计算差值
+        double ans = fabs(distance(x1, y1) - distance(x2, y2));
+        printf("%.3f\n", ans);
+    }
+
+    return 0;
+}
+```
 
 
 
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
+/*读取数字，并且操作字符串*/
+double digit(char ** exp_)
+{
+    char * exp = *exp_;
+    double number = 0;
+    for (*exp; *exp && *exp != ' '; ++(exp)) {
+        //每前进一步，计算数字
+        number = number * 10 + *exp - '0';
+        ++(*exp_);
+    };
+    //空格，继续前进一步，注意防止越界
+    if(*exp){
+        ++(*exp_);
+    }
+    return number;
+}
 
+/*读取操作符，并且操作字符串*/
+char function(char ** exp)
+{
+    //读取字符，前进一步
+    char f = *(*exp)++;
+    //空格，继续前进一步
+    (*exp)++;
+    return f;
+}
 
+//计算表达式的值
+//使用数组作为容器
+double calc(char * exp)
+{
+    double numbers[205];
+    //将第一个数字保存在0号位置
+    numbers[0] = digit(&exp);
+    int i = 0;
 
+    while (*exp) {
+        //读取操作符
+        char f = function(&exp);
+        //读取下一个数字
+        double next_value = digit(&exp);
+        //如果是乘法和除法，直接将结果存在原位置
+        if (f == '*')numbers[i] *= next_value;
+        else if (f == '/')numbers[i] /= next_value;
+        //如果是加法和减法，则将结果保存在下一位，这是优先级处理的关键点
+        else if (f == '+')numbers[++i] = next_value;
+        else
+        {
+            //除法
+            numbers[++i] = -next_value;
+        }
+    }
+    //最后只需要进行加法操作，将所有存的数据累加
+    for (i; i > 0; i--)
+        numbers[0] += numbers[i];
+    //返回累加结果
+    return numbers[0];
+}
+
+int main(int argc, char const *argv[])
+{
+    char exp[300];
+    memset(exp, 0, sizeof(exp));
+    //输入表达式
+    while (gets(exp) && strcmp(exp, "0"))
+    {
+        //计算结果
+        double value = calc(exp);
+        //清空字符串
+        memset(exp, 0, sizeof(exp));
+        //输出结果
+        printf("%.2lf\n", value);
+    }
+
+    return 0;
+}
+```
 
 
 
