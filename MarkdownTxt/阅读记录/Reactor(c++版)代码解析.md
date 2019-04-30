@@ -848,6 +848,180 @@ Reactor模式由事件源、事件反应器、事件分离器、事件处理器�
 
 　　根据Reactor模式具体的事件处理流程可知，应用程序只参与了最开始的事件注册部分。对于之后的整个事件等待和处理的流程中，应用程序并不直接参与，最终的事件处理也是委托给了事件反应器进行。因此通过使用Reactor模式，应用程序无需关心事件是怎么来的，是什么时候来的，我们只需在注册事件时设置好相应的处理方式即可。这也反映了设计模式中的“好莱坞原则”，具体事件的处理过程被事件反应器控制反转了。
 
+### 4.5 例代码
+
+java中的NIO即为一种IO复用方式，类似如下操作：
+
+![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\16363f5338f36c54)
+
+```java
+package com.linxcool.reactor;
+ 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.util.Iterator;
+import java.util.Set;
+ 
+/**
+ * 反应器模式
+ * 用于解决多用户访问并发问题
+ * 
+ * 举个例子：餐厅服务问题
+ * 
+ * 传统线程池做法：来一个客人(请求)去一个服务员(线程)
+ * 反应器模式做法：当客人点菜的时候，服务员就可以去招呼其他客人了，等客人点好了菜，直接招呼一声“服务员”
+ * 
+ * @author linxcool
+ */
+public class Reactor implements Runnable{
+	public final Selector selector;		//选择器
+	public final ServerSocketChannel serverSocketChannel; // socket通道
+ 
+	public Reactor(int port) throws IOException{
+		selector=Selector.open();
+		serverSocketChannel=ServerSocketChannel.open();
+		InetSocketAddress inetSocketAddress=new InetSocketAddress(InetAddress.getLocalHost(),port);
+		serverSocketChannel.socket().bind(inetSocketAddress);
+		serverSocketChannel.configureBlocking(false);	//使用Selector必须为非阻塞通道
+		 
+		//向selector注册该channel  
+		SelectionKey selectionKey=serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+ 
+		//利用selectionKey的attache功能绑定Acceptor 如果有事情，触发Acceptor 
+		selectionKey.attach(new Acceptor(this));
+	}
+ 
+	@Override
+	public void run() {
+		try {
+			while(!Thread.interrupted()){
+				selector.select();			//类似Epoll中的Epoll_wait
+				Set<SelectionKey> selectionKeys= selector.selectedKeys();
+				Iterator<SelectionKey> it=selectionKeys.iterator();
+				//Selector如果发现channel有OP_ACCEPT或READ事件发生，下列遍历就会进行。
+				while(it.hasNext()){
+					//来一个事件 第一次触发一个accepter线程  
+					//以后触发SocketReadHandler
+					SelectionKey selectionKey=it.next();
+					dispatch(selectionKey);
+					selectionKeys.clear();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 运行Acceptor或SocketReadHandler
+	 * @param key
+	 */
+	void dispatch(SelectionKey key) {
+		Runnable r = (Runnable)(key.attachment());  
+		if (r != null){  
+			r.run();
+		}  
+	}  
+}
+```
+
+```java
+package com.linxcool.reactor;
+ 
+import java.io.IOException;
+import java.nio.channels.SocketChannel;
+ 
+public class Acceptor implements Runnable{
+	private Reactor reactor;
+	public Acceptor(Reactor reactor){
+		this.reactor=reactor;
+	}
+	@Override
+	public void run() {
+		try {
+			SocketChannel socketChannel=reactor.serverSocketChannel.accept();
+			if(socketChannel!=null)//调用Handler来处理channel
+				new SocketReadHandler(reactor.selector, socketChannel);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+```
+
+```java
+package com.linxcool.reactor;
+ 
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+ 
+public class SocketReadHandler implements Runnable{
+	private SocketChannel socketChannel;
+	public SocketReadHandler(Selector selector,SocketChannel socketChannel) throws IOException{
+		this.socketChannel=socketChannel;
+		socketChannel.configureBlocking(false);
+		
+		SelectionKey selectionKey=socketChannel.register(selector, 0);
+		
+		//将SelectionKey绑定为本Handler 下一步有事件触发时，将调用本类的run方法。  
+		//参看dispatch(SelectionKey key)  
+		selectionKey.attach(this);
+		
+		//同时将SelectionKey标记为可读，以便读取。  
+		selectionKey.interestOps(SelectionKey.OP_READ);  
+		selector.wakeup();
+	}
+	
+	/**
+	 * 处理读取数据
+	 */
+	@Override
+	public void run() {
+		ByteBuffer inputBuffer=ByteBuffer.allocate(1024);
+		inputBuffer.clear();
+		try {
+			socketChannel.read(inputBuffer);
+			//激活线程池 处理这些request
+			//requestHandle(new Request(socket,btt)); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+JAVA创建的Selector模板，返回值的说明如下。
+
+```java
+//创建ready集合的方法
+int readySet = selectionKey.readyOps();
+//检查这些操作是否就绪的方法
+key.isAcceptable();//是否可读，是返回 true
+boolean isWritable()：//是否可写，是返回 true
+boolean isConnectable()：//是否可连接，是返回 true
+boolean isAcceptable()：//是否可接收，是返回 true
+/* 监听状态如下：
+* register() 方法的第二个参数。这是一个“ interest集合 ”，意思是在通过Selector监听Channel时对
+* 什么事件感兴趣。可以监听四种不同类型的事件：Connect、Accept、Read、Write。
+* 通道触发了一个事件意思是该事件已经就绪。比如某个Channel成功连接到另一个服务器称为“ 连接就绪 ”。
+* 一个Server Socket Channel准备好接收新进入的连接称为“ 接收就绪 ”。一个有数据可读的通道可以说
+* 是“ 读就绪 ”。等待写数据的通道可以说是“ 写就绪 ”。
+* 这四种事件用SelectionKey的四个常量来表示：
+*/
+SelectionKey.OP_CONNECT
+SelectionKey.OP_ACCEPT
+SelectionKey.OP_READ
+SelectionKey.OP_WRITE
+
+```
+
 
 
 

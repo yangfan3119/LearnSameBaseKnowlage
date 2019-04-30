@@ -11,9 +11,10 @@
 
 
 - 现有框架的分析，有助于现代企业软件结构和功能项的快速理解和搭建。例如J2EE、Spring等
-- 
 
 
+
+[QT线程描述](https://blog.csdn.net/waterMelon_eater/article/details/89481488)
 
 
 
