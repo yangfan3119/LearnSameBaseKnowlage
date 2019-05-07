@@ -617,8 +617,8 @@ div{
     height:200px;
     border:2px red solid;
     position:relative;
-    left:100px;
-    top:50px;
+	bottom:0;
+    right:0;
 }
 <div id="div1"></div>
 ```
@@ -772,6 +772,201 @@ p{font-size:1em; text-indent:2em;}	/*此时em的值去父元素的font-size*/
 3. ==百分比==。同em类似
 
 ### 6.4 水平居中设置
+
+```mermaid
+graph LR
+Org[txt/img等<br>水平居中];A[行内元素];A_x[父元素`text-align:center`];
+B[块状元素];B1[定宽块状元素];B2[不定宽块状元素];
+B1_x[左右`margin:auto`]
+Org-->A;A-->A_x;
+Org-->B;B-->B1;B-->B2;B1-->B1_x;
+```
+
+- **注意**：此处可以重叠使用，即块状元素在当前块中的剧中使用`margin`，而在块中的文字或者图片需要居中时，就使用`text-align:center;`
+
+```mermaid
+graph LR
+B20[不定宽块状元素];
+B2_x1[加入`table`标签];B2_x10[`table`长度自适应];
+B2_x2[`display: inline`];B2_x20[转行内元素做居中设置];
+B2_x3[相对偏移`left:50%`];B2_x30[`positive:relative`]
+B20-->B2_x1;B2_x1-->B2_x10;
+B20-->B2_x2;B2_x2-->B2_x20;
+B20-->B2_x3;B2_x3-->B2_x30;
+```
+
+1. ==方法一==：使用table标签，实际操作使用table的一个单元格作为容器装载元素。使得元素整体成为一个定宽块元素，此时使用定宽的方法实现。
+
+```html
+<style>
+table{
+    margin:0 auto;		/* 定宽设定水平居中 */
+}
+
+/*下面是任务区代码*/
+.wrap{
+    background:#ccc;
+}
+</style>
+
+<table>				<!-- table标签 -->
+  <tbody>			<!-- table主体 -->
+    <tr><td>		<!-- tr一行，td一个单元格。 -->
+	<ul>			<!-- 所以此处为一个占用一行的一快单元格 -->
+    	<li>我是第一行文本</li>
+        <li>我是第二行文本</li>
+        <li>我是第三行文本</li>
+    </ul>
+    </td></tr>
+  </tbody>
+</table>
+```
+
+2. ==方法二==：转为行内元素操作。
+
+```html
+<style>
+    .container{ text-align:center; }
+    /* margin:0;padding:0（消除文本与div边框之间的间隙）*/
+    .container ul{ list-style:none;margin:0;padding:0;display:inline; }
+    /* margin-right:8px（设置li文本之间的间隔）*/
+    .container li{ margin-right:8px;display:inline; }
+</style>
+
+<body>
+<div class="container">
+    <ul>
+    	<li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+    </ul>
+</div>
+</body>
+```
+
+这种方法相比第一种方法的优势是不用增加无语义标签，但也存在着一些问题：它将块状元素的 display 类型改为 inline，变成了行内元素，所以少了一些功能，比如设定长度值。**效果上，如上三个块状元素呈一行排列。**
+
+3. ==方法三==：通过给父元素设置`float`，然后给父元素设置 `position:relative`和 `left:50%`，子元素设置 `position:relative` 和 `left: -50%` 来实现水平居中。
+
+```html
+<style>
+    .container{ float:left;position:relative;left:50% }
+    .container ul{ list-style:none;margin:0;padding:0;
+        position:relative;
+        left:-50%;
+    }
+    .container li{float:left;display:inline;margin-right:8px;}
+</style>
+
+<body>
+<div class="container">
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+    </ul>
+</div>
+</body>
+```
+
+我们可以这样理解：假想ul层的父层（即下面例子中的div层）中间有条平分线将ul层的父层（div层）平均分为两份，ul层的css代码是将ul层的最左端与ul层的父层（div层）的平分线对齐；而li层的css代码则是将li层的平分线与ul层的最左端（也是div层的平分线）对齐，从而实现li层的居中。
+
+**实际效果：浮动模式会造成元素的交叠请情况，即因为相对位置的改变造成重叠现象。**
+
+### 6.5 垂直居中
+
+```mermaid
+graph TB
+Org[垂直居中操作];A[父元素高度确定的单行文本];B[父元素高度确定的多行文本];
+Org-->A;Org-->B;
+```
+
+1. **父元素高度确定的单行文本: **的竖直居中的方法是通过设置父元素的 `height` 和`line-height` 高度一致来实现的。(`height`: 该元素的高度，`line-height`: 顾名思义，行高（行间距），指在文本中，行与行之间的 基线间的距离 )。
+
+   `line-height` 与 `font-size` 的计算值之差，在 CSS 中成为“行间距”。分为两半，分别加到一个文本行内容的顶部和底部。==此时让两者保持一致，就使得文字的行完全占据了父元素的顶部和底部。==
+
+   **弊端**：当文字内容的长度大于块的宽时，就有内容脱离了块。
+
+   ```html
+   <style>
+   .container{
+       height:100px;
+       line-height:100px;
+       background:#999;
+   }
+   </style>
+   
+   <div class="container">
+       hi,imooc!
+   </div>
+   ```
+
+2. **父元素高度确定的多行文本**：
+
+   方法一： 使用`table`标签 (包括tbody、tr、td)标签，同时设置 `vertical-align：middle`，（纵向校准为居中）
+
+   ```html
+   <style>
+       table td{ height:500px; background:#ccc }
+   </style>
+   
+   <body>
+   <table><tbody><tr><td class="wrap">
+   <div>
+       <p>看我是否可以居中。</p>
+   </div>
+   </td></tr></tbody></table>
+   </body>
+   ```
+
+   方法二：在 chrome、firefox 及 IE8 以上的浏览器下可以设置块级元素的 display 为 table-cell（设置为表格单元显示），激活 vertical-align 属性，但注意 IE6、7 并不支持这个样式, 兼容性比较差。
+
+   ```html
+   <style>
+       .container{
+           height:300px;
+           background:#ccc;
+           display:table-cell;/*IE8以上及Chrome、Firefox*/
+           vertical-align:middle;/*IE8以上及Chrome、Firefox*/
+       }
+   </style>
+   
+   <div class="container">
+       <div>
+           <p>看我是否可以居中。</p>
+           <p>看我是否可以居中。</p>
+           <p>看我是否可以居中。</p>
+       </div>
+   </div>
+   ```
+
+   这种方法的好处是不用添加多余的无意义的标签，但缺点也很明显，它的兼容性不是很好，不兼容 IE6、7而且这样修改display的block变成了table-cell，破坏了原有的块状元素的性质。
+
+### 6.6 隐性改变display类型
+
+有一个有趣的现象就是当为元素（不论之前是什么类型元素，display:none 除外）设置以下 2 个句之一：
+
+1. `position : absolute` 
+
+2. `float : left` 或 `float:right`
+
+简单来说，只要html代码中出现以上两句之一，元素的display显示类型就会自动变为以 display:inline-block（[块状元素](http://www.imooc.com/code/2048)）的方式显示，当然就可以设置元素的 width 和 height 了，且默认宽度不占满父元素。
+
+```html
+<style>
+    .container a{
+        position:absolute;
+        width:200px;
+        background:#ccc;
+    }
+</style>
+
+<div class="container">
+    <a href="#" title="">进入课程请单击这里</a>
+</div>
+```
+
+
 
 
 
