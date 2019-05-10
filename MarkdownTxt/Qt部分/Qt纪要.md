@@ -105,29 +105,145 @@ RC_ICONS = myico.ico
    QMetaObject::connectSlotsByName(this);
    ```
 
----
+
+
+### 二、Qt Designer
+
+#### 2.1 界面使用
+
+1. 先做控件的拖拽创建。完成基本的控件功能。
+2. 做控件的关联整理，哪些是成行的，哪些式成列的。哪些又是呈现网格的。理顺关系
+3. 做控件大小的调整。
+4. 做控件美化，使用css格式插入。
+5. 关联主程序的业务逻辑和数据处理。
+
+*注意：*做控件美化时，可以现在Designer中创建希望拥有的格式，在集合整理到统一的css文件中即可。
+
+#### 2.2 关键点记录
+
+- 窗口部件
+  1. 添加控件：从左侧的部件列表中选中需要的部件，拖到右侧的设计窗口上就可以了
+  2. 复制控件：按住ctrl，鼠标点击要复制的控件，按住向外拉，就得到了复制的控件
+  3. 删除控件：鼠标点击要删除的控件，右键删除或按delete键
+  4. 选中多个控件：鼠标向外拉出一个矩形，覆盖要选中的控件，或者按住ctrl，依次点击要选中的控件
+  5. 控件位置，大小等相关属性：详见属性编辑器和布局
+
+- 属性编辑器：可以用来编辑控件的相关属性，有从父类Widget继承而来的属性，也有自己控件独特的属性，使用时比较方便。
+
+- 布局管理器的使用： 
+
+  Qt 的布局管理器负责在父窗口部件区域内构建子窗口部件。这些管理器可以使其中 的窗口部件自动定位并重新调整子窗口部件、保持窗口部件敏感度最小化的变化和默认尺 寸，并可在内容或文本字体更改时自动重新定位。在 Qt Designer 中，完全可以使用布局管理器来定位控件。
+
+  > 1. 布局类的继承关系： QLayout 类是 Qt 的几何管理器的基类，它派生自 QObject 类和 QLayoutItem 类，是一 个抽象基类，必须被派生类所重新实现。它的派生类主要有 QBoxLayout， QGridLayout， QFormLayout 以及 QStackedLayout。而 QBoxLayout又派生出QHBoxLayout和QVBoxLayout2个子类。除了这些内建布局器，常用的还有QSplitter分裂器布局，QSpacerItem弹簧。
+  >
+  > 2. 布局管理器的属性设置：以下图QVBoxLayout为例，layoutLeftMargin，layoutRightMargin。。。这4个属性用于设置布局内的控件距布局边缘(上，下，左，右)的空白距离。layoutSpacing这个属性用于设置布局内的控件之间的空白距离。还有其他一些属性，这里不再列举。 
+
+![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20170927141544779.png)
+
+> 3. 顶级布局：在将所有控件布局完成后，还需要点一下主窗口，然后再选择一种布局，称之顶级布局。如果不设顶级布局的话，控件无法与主窗口建立起联系，这样在主窗口大小改变时控件不能随之变化。
+
+常见布局器的使用及效果
+
+| 布局               | 说明                                                         | 效果                                                         |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Box水平或垂直布局  | 将选中的界面元素置于一个水平或垂直布局中                     | ![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20170925181418391.png) |
+| Grid栅格布局       | 将选中的界面元素置于一个栅格布局中，每个控件占据一块方形格子 | ![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20170925181730644.png) |
+| Form表单布局       | 将控件以两列的形式布局在表单中。左列标签label，右列输入控件如LineEdit | ![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20170925182542136.png) |
+| Splitter分裂器布局 | 创建一个分裂器水平或垂直布局，选中的控件长度可由用户在水平或垂直方向上拖动 | ![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20170925183409358.png) |
+| Spacer间隔布局     | 像弹簧一样，占据空白空间，用于限制控件扩展和控制控件之间间隔 | ![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20170925183829736.png) |
+
+> 4.**窗口控件的大小控制** 
+>
+> 要想在布局时和主窗口大小改变时控制控件的大小，QWidget里有一些方法如下： 
+> - sizeHint：这个属性所保存的QSize的值是一个推荐这个窗体尺寸的一个值，sizeHint() 函数会返回这个推荐值 
+> - minimumSizeHint：与sizeHint一样，只不过这个属性保存的是推荐这个窗体最小尺寸的一个值 
+> - minimumSize和maximumSize：这2个属性保存的是窗体的最小尺寸和最大尺寸，窗体的尺寸被限制在这2个尺寸之间，可以自己设置。 
+> - sizePolicy：这个属性用于设置窗体在 水平/垂直 方向上的伸展属性，在窗体没有被布局的情况下是不起作用的，QSizePolicy::Policy 枚举值有如下几个：
+
+| 属性值                        | 描述                                                         |
+| ----------------------------- | ------------------------------------------------------------ |
+| QSizePolicy::Fixed            | widget 的实际尺寸只 参考 sizeHint() 的返回值，当主窗口在水平/垂直方向上大小改变时它不能随之变化 |
+| QSizePolicy::Minimum          | 可以随主窗口伸展收缩，不过widget尺寸不能小于sizeHint()       |
+| QSizePolicy::Maximum          | 可以随主窗口伸展收缩，不过widget尺寸不能大于sizeHint()       |
+| QSizePolicy::Preferred        | 可以随主窗口伸展收缩，但在争夺空白空间上没有优势             |
+| QSizePolicy::Expanding        | 可以随主窗口伸展收缩，在布局时它会尽可能多地去获取额外的空间，也就是比 Preferred 更具优势 |
+| QSizePolicy::MinimumExpanding | 可以随主窗口伸展收缩，不过widget尺寸不能小于sizeHint(),同时它比 Preferred 更具优势去获取额外空间 |
+| QSizePolicy::Ignored          | 忽略 sizeHint() 的作用                                       |
+
+	#### 2.3 实际操作注意点
+
+1.  在已有代码中添加Ui时注意Ui库写法。==**Ui**==
+
+```c++
+namespace Ui {					// 重点
+class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+
+
+private slots:
+    
+    void on_BtnTest_clicked();
+
+    void on_BtnDesign_clicked();
+
+private:
+    Ui::MainWindow *ui;			// 重点
+};
+```
+
+```c++
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)		// 重点
+{
+    ui->setupUi(this);			// 重点
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;					// 重点
+}
+```
+
+2. 控件名称的改变，会导致槽函数名称的变化，使得原有名称无法关联到控件，因此需做处理。
 
 
 
+#### 2.4 样式表 StyleSheet
+
+[图文讲解：QT样式表StyleSheet的使用与加载](https://blog.csdn.net/qq_31073871/article/details/79943093)
+
+[Qt 之 样式表的使用——设置样式的方法](https://blog.csdn.net/goforwardtostep/article/details/60884870)
+
+[Qt常用QSS集合](https://www.jianshu.com/p/2ecf26464f78)
+
+[QT自定义控件大全](https://blog.csdn.net/qq_19004627/article/details/79736557)
 
 
 
+### 三、其他
 
+#### 3.0 鼠标指针Cursor
 
+![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\6157840_1325147073H3kN.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+```c++
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+{
+    ui->setupUi(this);
+    setCursor(QCursor(Qt::OpenHandCursor));
+}
+```
 
 
 

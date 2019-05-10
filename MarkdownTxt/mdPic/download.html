@@ -1,0 +1,3500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/a10929/article/details/78114261/"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"使用Qt Designer来设计界面 - thinkZHU-的博客"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>使用Qt Designer来设计界面 - thinkZHU-的博客 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-c9f101d6a9.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/a10929\/article\/details\/78114261\/","appid":"1563894916825412","title":"\u4f7f\u7528Qt Designer\u6765\u8bbe\u8ba1\u754c\u9762 - thinkZHU-\u7684\u535a\u5ba2","images":["https:\/\/img-blog.csdn.net\/20170924101842061?watermark\/2\/text\/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5\/font\/5a6L5L2T\/fontsize\/400\/fill\/I0JBQkFCMA==\/dissolve\/70\/gravity\/SouthEast","https:\/\/img-blog.csdn.net\/20170927141544779?watermark\/2\/text\/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5\/font\/5a6L5L2T\/fontsize\/400\/fill\/I0JBQkFCMA==\/dissolve\/70\/gravity\/SouthEast","https:\/\/img-blog.csdn.net\/20170925181418391?watermark\/2\/text\/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5\/font\/5a6L5L2T\/fontsize\/400\/fill\/I0JBQkFCMA==\/dissolve\/70\/gravity\/SouthEast"],"pubDate":"2019-05-07T09:26:20"}</script>
+        
+          <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-2eefd34acf.min.css">
+        <script type="text/javascript">
+        var username = "a10929";
+        var userPermission = false;
+        var blog_address = "https://blog.csdn.net/a10929";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var currentUserPermission = false;
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/a10929/article/details/78114261/"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-yellow";
+        // 第四范式所需数据
+        var articleTitles = "使用Qt Designer来设计界面 - thinkZHU-的博客";
+        var articleID = "78114261";
+        
+        var nickName = "thinkZHU-";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/a10929/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/a10929/article/details/78114261";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/fixed-sidebar/1.1.3/fixed-sidebar.js" type="text/javascript"></script>
+    <!-- 新版上报 -->
+      <script src="//g.csdnimg.cn/track/1.2.4/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<!-- nodata 第三栏接口无数据时样式不变 -->
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<div id="kp_box_476" data-pid="476" data-track-view='{"mod":"kp_popu_476-891","con":",,"}' data-track-click='{"mod":"kp_popu_476-891","con":",,"}'><script src="//csdnimg.cn/public/common/indexSuperise/1.0.6/indexSuperise.js?20190423133109"></script>
+<script>
+window.csdn.indexSuperise({
+    smallMoveImg: "//ubmcmm.baidustatic.com/media/v1/0f000ntnp0VTgAexmTK7v0.png", 
+    smallMove: "notMove", 
+    link: "//h5.youzan.com/v2/ump/promocard/fetch?alias=1eme18l51", 
+    trackSuperId: "476", 
+    trackSId: "891",
+    show360id: "t5unDb",
+    title360: "码书商店代金券" ,
+    
+});
+</script></div><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	// 容错处理
+	var NEWS_FEED = function(){}
+</script>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script type="text/javascript" src="//g.csdnimg.cn/copyright/1.0.3/copyright.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	
+    <main>
+        <div class="blog-content-box">
+	<div class="article-header-box">
+		<div class="article-header">
+			<div class="article-title-box">
+				<span class="article-type type-1 float-left">原</span>				<h1 class="title-article">使用Qt Designer来设计界面</h1>
+			</div>
+			<div class="article-info-box">
+				<div class="article-bar-top">
+																									<span class="time">2017年09月27日 16:25:58</span>
+					<a class="follow-nickName" href="https://me.csdn.net/a10929" target="_blank">thinkZHU-</a>
+						<span class="read-count">阅读数：35720</span>
+						
+																															</div>
+				<div class="operating">
+									</div>
+			</div>
+		</div>
+	</div>
+	<article class="baidu_pl">
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+								<div class="article-copyright">
+                  					<svg class="icon" title="CSDN认证原创" aria-hidden="true" style="width:53px; height: 18px; vertical-align: -4px;">
+							<use xlink:href="#CSDN_Cert"></use>
+					</svg>
+                  					
+					版权声明：本文为博主原创文章，未经博主允许不得转载。					https://blog.csdn.net/a10929/article/details/78114261				</div>
+								<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+        								            <div id="content_views" class="markdown_views prism-atom-one-dark">
+							<!-- flowchart 箭头图标 勿删 -->
+							<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg>
+							<h2 id="介绍">介绍</h2>
+
+<p>Qt Designer，是一个直观可见的全方位 GUI 构造器，它所 设计出来的用户界面能够在多种平台上使用。它是 Qt SDK 的一部分，也是最为重要的开发 工具之一。利用 Qt Designer，我们可以拖放各种 Qt 控件构造图形用户界面并可预览效 果。</p>
+
+
+
+<h2 id="与纯代码设计界面的区别">与纯代码设计界面的区别</h2>
+
+<p>使用designer设计的.ui文件最终还是会生成相应的.h文件,所以使用designer做的工作都可以自己亲自用代码来实现，所以如果用代码来设计界面的话，主要工作就是：</p>
+
+<ul>
+<li>创建相关的窗口部件类的对象</li>
+<li>通过调用成员函数来设置这些部件的一些属性等等</li>
+<li>创建布局管理器类来布局(想死的话也可以自己手工布局)</li>
+<li>其他，如添加资源文件，添加动作，设置信号-槽 等等</li>
+</ul>
+
+<p>使用designer来设计界面，大大减少了程序代码量，设计起来也更加方便清晰。</p>
+
+
+
+<h2 id="使用方法">使用方法</h2>
+
+<ol>
+<li><p>窗口部件：</p>
+
+<ul><li>添加控件：从左侧的部件列表中选中需要的部件，拖到右侧的设计窗口上就可以了</li>
+<li>复制控件：按住ctrl，鼠标点击要复制的控件，按住向外拉，就得到了复制的控件</li>
+<li>删除控件：鼠标点击要删除的控件，右键删除或按delete键</li>
+<li>选中多个控件：鼠标向外拉出一个矩形，覆盖要选中的控件，或者按住ctrl，依次点击要选中的控件</li>
+<li>控件位置，大小等相关属性：详见属性编辑器和布局 <br>
+<img src="https://img-blog.csdn.net/20170924101842061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></li></ul></li>
+<li><p>属性编辑器：可以用来编辑控件的相关属性，有从父类Widget继承而来的属性，也有自己控件独特的属性，使用时比较方便。</p></li>
+<li><p>布局管理器的使用： <br>
+Qt 的布局管理器负责在父窗口部件区域内构建子窗口部件。这些管理器可以使其中 的窗口部件自动定位并重新调整子窗口部件、保持窗口部件敏感度最小化的变化和默认尺 寸，并可在内容或文本字体更改时自动重新定位。在 Qt Designer 中，完全可以使用布局管理器来定位控件。</p>
+
+<ul><li><p><strong>布局类的继承关系： QLayout 类是 Qt 的几何管理器的基类，它派生自 QObject 类和 QLayoutItem 类，是一 个抽象基类，必须被派生类所重新实现。它的派生类主要有 QBoxLayout， QGridLayout， QFormLayout 以及 QStackedLayout。而 QBoxLayout又派生出QHBoxLayout和QVBoxLayout2个子类。除了这些内建布局器，常用的还有QSplitter分裂器布局，QSpacerItem弹簧。</strong></p></li>
+<li><p><strong>布局管理器的属性设置：以下图QVBoxLayout为例，layoutLeftMargin，layoutRightMargin。。。这4个属性用于设置布局内的控件距布局边缘(上，下，左，右)的空白距离。layoutSpacing这个属性用于设置布局内的控件之间的空白距离。还有其他一些属性，这里不再列举。 </strong> <br>
+<img src="https://img-blog.csdn.net/20170927141544779?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></p></li>
+<li><p><strong>顶级布局：在将所有控件布局完成后，还需要点一下主窗口，然后再选择一种布局，称之顶级布局。如果不设顶级布局的话，控件无法与主窗口建立起联系，这样在主窗口大小改变时控件不能随之变化。 </strong></p></li>
+<li><p><strong>常见布局器的使用及效果</strong></p></li></ul></li>
+</ol>
+
+<table>
+<thead>
+<tr>
+  <th>布局</th>
+  <th>说明</th>
+  <th>效果</th>
+  <th>详细</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>Box水平或垂直布局</td>
+  <td>将选中的界面元素置于一个水平或垂直布局中</td>
+  <td><img src="https://img-blog.csdn.net/20170925181418391?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></td>
+  <td><a href="http://blog.csdn.net/liang19890820/article/details/51537246" rel="nofollow">请看</a></td>
+</tr>
+<tr>
+  <td>Grid栅格布局</td>
+  <td>将选中的界面元素置于一个栅格布局中，每个控件占据一块方形格子</td>
+  <td><img src="https://img-blog.csdn.net/20170925181730644?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></td>
+  <td><a href="https://www.2cto.com/kf/201605/513687.html" rel="nofollow">请看</a></td>
+</tr>
+<tr>
+  <td>Form表单布局</td>
+  <td>将控件以两列的形式布局在表单中。左列标签label，右列输入控件如LineEdit</td>
+  <td><img src="https://img-blog.csdn.net/20170925182542136?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></td>
+  <td><a href="http://blog.csdn.net/liang19890820/article/details/51539339" rel="nofollow">请看</a></td>
+</tr>
+<tr>
+  <td>Splitter分裂器布局</td>
+  <td>创建一个分裂器水平或垂直布局，选中的控件长度可由用户在水平或垂直方向上拖动</td>
+  <td><img src="https://img-blog.csdn.net/20170925183409358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></td>
+  <td><a href="http://blog.csdn.net/u011417605/article/details/50914738" rel="nofollow">请看</a></td>
+</tr>
+<tr>
+  <td>Spacer间隔布局</td>
+  <td>像弹簧一样，占据空白空间，用于限制控件扩展和控制控件之间间隔</td>
+  <td><img src="https://img-blog.csdn.net/20170925183829736?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwOTI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""></td>
+  <td><a href="http://blog.csdn.net/liang19890820/article/details/51614868" rel="nofollow">请看</a></td>
+</tr>
+</tbody></table>
+
+
+<p>4.<strong>窗口控件的大小控制</strong> <br>
+    <strong>要想在布局时和主窗口大小改变时控制控件的大小，QWidget里有一些方法如下：</strong> <br>
+    - <strong>sizeHint：这个属性所保存的QSize的值是一个推荐这个窗体尺寸的一个值，sizeHint() 函数会返回这个推荐值</strong> <br>
+    - <strong>minimumSizeHint：与sizeHint一样，只不过这个属性保存的是推荐这个窗体最小尺寸的一个值</strong> <br>
+    - <strong>minimumSize和maximumSize：这2个属性保存的是窗体的最小尺寸和最大尺寸，窗体的尺寸被限制在这2个尺寸之间，可以自己设置。</strong> <br>
+    - <strong>sizePolicy：这个属性用于设置窗体在 水平/垂直 方向上的伸展属性，在窗体没有被布局的情况下是不起作用的，QSizePolicy::Policy 枚举值有如下几个：</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>属性值</th>
+  <th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>QSizePolicy::Fixed</td>
+  <td>widget 的实际尺寸只 <strong>参考</strong> sizeHint() 的返回值，当主窗口在水平/垂直方向上大小改变时它不能随之变化</td>
+</tr>
+<tr>
+  <td>QSizePolicy::Minimum</td>
+  <td>可以随主窗口伸展收缩，不过widget尺寸不能小于sizeHint()</td>
+</tr>
+<tr>
+  <td>QSizePolicy::Maximum</td>
+  <td>可以随主窗口伸展收缩，不过widget尺寸不能大于sizeHint()</td>
+</tr>
+<tr>
+  <td>QSizePolicy::Preferred</td>
+  <td>可以随主窗口伸展收缩，但在争夺空白空间上没有优势</td>
+</tr>
+<tr>
+  <td>QSizePolicy::Expanding</td>
+  <td>可以随主窗口伸展收缩，在布局时它会尽可能多地去获取额外的空间，也就是比 Preferred 更具优势</td>
+</tr>
+<tr>
+  <td>QSizePolicy::MinimumExpanding</td>
+  <td>可以随主窗口伸展收缩，不过widget尺寸不能小于sizeHint(),同时它比 Preferred 更具优势去获取额外空间</td>
+</tr>
+<tr>
+  <td>QSizePolicy::Ignored</td>
+  <td>忽略 sizeHint() 的作用</td>
+</tr>
+</tbody></table>
+
+
+<p><strong>Ps：影响布局后窗体的大小还有其他因素，比如不同的布局方案就会有影响…</strong></p>            </div>
+						<link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                      </div>
+	</article>
+</div>
+
+  <div class="hide-article-box hide-article-pos text-center">
+    <div class="border"></div>
+        <a class="btn article-footer-btn" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/a10929/article/details/78114261/,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/a10929/article/details/78114261/,"}'>阅读更多</a>
+        <a class="btn article-footer-btn article-footer-bookmark-btn" >
+      <svg class="icon no-active hover-hide" aria-hidden="true">
+        <use xlink:href="#csdnc-bookmark"></use>
+      </svg>
+      <span>收藏</span>
+    </a>
+    <div class="btn article-footer-btn  bds_weixin article-footer-share-btn" data-cmd="weixin" title="分享">
+      <svg class="icon no-active hover-hide" aria-hidden="true">
+        <use xlink:href="#csdnc-share"></use>
+      </svg>
+      <span>分享</span>
+      <div class="bdsharebuttonbox">
+        <a href="#"class="bds_weixin clear-share-style-article-footer" data-cmd="weixin" title="分享"></a>
+      </div>
+    </div>
+
+  </div>
+  
+  <script>
+  (function(){
+    function collection(){
+      if (currentUserName) {
+        var markObj = {};
+            markObj.imgUrl ='https://csdnimg.cn/release/phoenix/static_blog/images/appqr.png';
+        var markPrompt = (new window.csdn.publicPrompt).init(markObj);
+        var maeked = '您已经收藏过';
+        if (!$(this).hasClass("liked")) {
+          $.ajax({
+            url: 'https://my.csdn.net/my/favorite/do_add/2',
+            dataType: 'json',
+            type: 'POST',
+            xhrFields: {
+              withCredentials: true
+            },
+            data: {
+              title: articleTit,
+              url: 'https://blog.csdn.net/a10929/article/details/78114261',
+              share: 1,
+              map_name: ''
+            },
+            success: function(data) {
+              
+              if (data.succ == 1) {
+                $('.btn-bookmark').addClass("liked");
+                $('.article-footer-bookmark-btn').addClass("liked").children('span').text('已收藏');
+                markPrompt.show({})
+                // alert('收藏成功,可以在个人中心查看我的收藏');
+              } else {
+                if (data.msg === "您已经收藏过") {
+                  $('.btn-bookmark').addClass("liked");
+                  $('.article-footer-bookmark-btn').addClass("liked").children('span').text('已收藏');
+                  markPrompt.show({
+                    titleStr: maeked
+                  })
+                }else{
+                  alert(data.msg);
+                  
+                }
+              }
+            }
+          });
+        } else {
+          markPrompt.show({
+            titleStr: maeked
+          })
+        }
+      } else {
+        window.csdn.loginBox.show();
+      }
+    }
+    function permissionCheck(dom){
+      var returnData = false;
+      switch (true) {
+        case currentUserPermission && userPermission:
+          clearReadMoreBtn(dom)
+          returnData = true;
+          break;
+        case userPermission:
+          dom.text('VIP阅读');
+          returnData = false;
+          break;
+        default:
+          
+      }
+      return returnData;
+    }
+    window.csdn = window.csdn ? window.csdn : {};
+    window.csdn.articleCollection = collection;
+    function clearReadMoreBtn(dom) {
+      if(userPermission && !(dom instanceof jQuery)) {
+        window.open('https://mall.csdn.net/vip?utm_source=brv')
+        return false;
+      }
+      dom = dom instanceof jQuery ? dom : $(this);
+      $("div.article_content").removeAttr("style");
+      dom.parent().remove();
+    }
+    function setArticleH(btnReadmore,posi){
+      var winH = $(window).height();
+      var articleBox = $("div.article_content");
+      var artH = articleBox.height();
+      if(artH > winH*posi){
+        articleBox.css({
+          'height':winH*posi+'px',
+          'overflow':'hidden'
+        })
+        btnReadmore.click(clearReadMoreBtn)
+      }else{
+        btnReadmore.parent().remove()
+      }
+    }
+    var btnReadmore = $("#btn-readmore");
+    $('.article-footer-bookmark-btn').click(window.csdn.articleCollection)
+    if(btnReadmore.length>0){
+      if (permissionCheck(btnReadmore)) {
+        return false;
+      }
+      if(currentUserName){
+        setArticleH(btnReadmore,3);
+      }else{
+        setArticleH(btnReadmore,0.5);
+      }
+    }else{
+      $('.hide-article-box').addClass('hide-article-style');
+    }
+  })()
+</script>
+<script>
+		$(".MathJax").remove();
+		if($('div.markdown_views pre.prettyprint code.hljs').length > 0 ){
+				$('div.markdown_views')[0].className = 'markdown_views';
+		}
+</script>
+        <div id="dmp_ad_58"><div id="kp_box_58" data-pid="58" data-track-view='{"mod":"kp_popu_58-402","con":",,"}' data-track-click='{"mod":"kp_popu_58-402","con":",,"}'><div style="width:100%;background:#fff;border:3px solid #fff;">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div id="three_ad1" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 100,
+                showid : 'ztvJV8',
+                placeholderId: "three_ad1",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 0,
+                    imageWidth: 90,
+                    imageHeight: 68,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft YaHei',
+                    paddingTop : 20,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 20,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script>
+</div></div></div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="78114261">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+            		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/pipisorry/article/details/45999965,BlogCommendFromThirdService_0"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/pipisorry/article/details/45999965" target="_blank" title="PyQt5教程 - QtDesigner窗口设计工具的使用">
+				<h4 class="text-truncate oneline">
+						Py<em>Qt</em>5教程 - <em>Qt</em><em>Designer</em>窗口<em>设计</em>工具的<em>使用</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">05-26</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							5万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/pipisorry/article/details/45999965" target="_blank" title="PyQt5教程 - QtDesigner窗口设计工具的使用">
+							<span class="desc oneline">http://blog.csdn.net/pipisorry/article/details/45999965pyqt提供了Qtdesigner来设计窗口界面，用起来也非常方便，虽然做出来的界面不那么...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/pipisorry">来自：	<span class="blog_title"> 皮皮blog</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/acs713/article/details/9358507,BlogCommendFromThirdService_1"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/acs713/article/details/9358507" target="_blank" title="QT编程入门之QT designer">
+				<h4 class="text-truncate oneline">
+						<em>QT</em>编程入门之<em>QT</em> <em>designer</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-17</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/acs713/article/details/9358507" target="_blank" title="QT编程入门之QT designer">
+							<span class="desc oneline">这篇文章着眼于QT编程的一个入门级介绍，主要关注如何尽快创建一个基于qt的应用程序和界面开发。      如果你想快速的了解qt,那么本篇文章适合你。它将引导你一步步创建一个基本的qt程序和界面，并运...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/acs713">来自：	<span class="blog_title"> 铁匠Smith先生的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/rl529014/article/details/51364457,BlogCommendFromThirdService_2"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/rl529014/article/details/51364457" target="_blank" title="使用Qt Designer创建界面">
+				<h4 class="text-truncate oneline">
+						<em>使用</em><em>Qt</em> <em>Designer</em>创建<em>界面</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">05-10</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/rl529014/article/details/51364457" target="_blank" title="使用Qt Designer创建界面">
+							<span class="desc oneline">传统的GUI程序开发不区分前端和后台，统一使用C++代码管理，源文件中既有创建和设置控件的代码，又有处理业务逻辑的代码，非常杂乱。使用C++代码直接创建控件，不管是从语法上讲还是从代码量上讲，看起来都...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/rl529014">来自：	<span class="blog_title"> 好儿郎~志在四方</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_59" data-pid="59" data-track-view='{"mod":"kp_popu_59-78","con":",,"}' data-track-click='{"mod":"kp_popu_59-78","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3491668",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/amberman/article/details/7526309,BlogCommendFromThirdService_3"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/amberman/article/details/7526309" target="_blank" title="QT Designer 使用入门例子">
+				<h4 class="text-truncate oneline">
+						<em>QT</em> <em>Designer</em> <em>使用</em>入门例子				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">05-01</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/amberman/article/details/7526309" target="_blank" title="QT Designer 使用入门例子">
+							<span class="desc oneline">前面：这里只是告诉大家一种如何快速学习QT的方法.这里也只对QTDesigner和QT作一个简单的介绍.让没有写过QT的人能对QT有一个初步的认识.如果您真的对QTProgramming很有兴趣.这里...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/amberman">来自：	<span class="blog_title"> amberman的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mao19931004/article/details/52070912,BlogCommendFromThirdService_4"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/mao19931004/article/details/52070912" target="_blank" title="Qt Designer的进阶使用">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> <em>Designer</em>的进阶<em>使用</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-30</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/mao19931004/article/details/52070912" target="_blank" title="Qt Designer的进阶使用">
+							<span class="desc oneline">熟悉Qt的人或多或少的都会使用QtDesigner(以下简称Designer)，在Qt中，提供了一个用于可视化设计软件的界面的过程，使用Designer，你会减少使用代码来设计界面的过程，当然更多的时...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/mao19931004">来自：	<span class="blog_title"> 我只是一个单纯的2的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident recommend-other-item-box"  data-track-click='{"mod":"popu_614","con":",https://bbs.csdn.net/topics/390466219,BlogCommendFromBaidu_5"}'>
+		<a href="https://bbs.csdn.net/topics/390466219" target="_blank">
+			<h4 class="text-truncate oneline">
+					<em>qt</em>开发是<em>使用</em><em>QT</em> creator 还是用VS+<em>qt</em>?			</h4>
+			<div class="info-box d-flex align-content-center">
+					<span class="date">05-21</span>
+			</div>
+			<p class="content oneline">
+        <span class="desc oneline">都有什么区别？各有什么优点？ 话说QT5 + VS2010 怎么设置呢？</span>
+                  <span class="type-show type-show-bbs">论坛</span>
+        			</p>
+		</a>
+
+	</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jia666666/article/details/81710839,BlogCommendFromBaidu_6"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/jia666666/article/details/81710839" target="_blank" title="Qt Designer的安装与汉化教程">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> <em>Designer</em>的安装与汉化教程				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-15</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							7827</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/jia666666/article/details/81710839" target="_blank" title="Qt Designer的安装与汉化教程">
+							<span class="desc oneline">第一步：PyQt5的安装cmd下输入安装指令如下，注意，确保python环境的配置无误pipinstallPyQt5pipinstallPyQt5-tools第二步：打开pyQt所在的位置在这里，我的...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/jia666666">来自：	<span class="blog_title"> jia666666的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident recommend-other-item-box"  data-track-click='{"mod":"popu_614","con":",https://bbs.csdn.net/topics/320184097,BlogCommendFromBaidu_7"}'>
+		<a href="https://bbs.csdn.net/topics/320184097" target="_blank">
+			<h4 class="text-truncate oneline">
+					<em>Qt</em> Creator如何打开<em>Qt</em> <em>Designer</em>			</h4>
+			<div class="info-box d-flex align-content-center">
+					<span class="date">11-20</span>
+			</div>
+			<p class="content oneline">
+        <span class="desc oneline">如题，昨天刚安装了个QT CREATOR，能设计程序，编译速度有些慢，但是不知道怎么打开DESIGNER，这样的话就没法设计界面程序了，谢谢！</span>
+                  <span class="type-show type-show-bbs">论坛</span>
+        			</p>
+		</a>
+
+	</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_60" data-pid="60" data-track-view='{"mod":"kp_popu_60-43","con":",,"}' data-track-click='{"mod":"kp_popu_60-43","con":",,"}'><div id="three_ad8" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : 'Afihld',
+                placeholderId: "three_ad8",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident recommend-other-item-box"  data-track-click='{"mod":"popu_614","con":",https://bbs.csdn.net/topics/390849880,BlogCommendFromBaidu_8"}'>
+		<a href="https://bbs.csdn.net/topics/390849880" target="_blank">
+			<h4 class="text-truncate oneline">
+					<em>qt</em> creator和<em>qt</em> <em>designer</em>是相互独立的吗？			</h4>
+			<div class="info-box d-flex align-content-center">
+					<span class="date">08-03</span>
+			</div>
+			<p class="content oneline">
+        <span class="desc oneline">安装了qt最新版本，qt-opensource-windows-x86-msvc2013_64_opengl-5.3.1 安装完了后，有两个应用程序，一个是qt creator，一个是qt desig</span>
+                  <span class="type-show type-show-bbs">论坛</span>
+        			</p>
+		</a>
+
+	</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Lina_ACM/article/details/51457220,BlogCommendFromBaidu_9"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/Lina_ACM/article/details/51457220" target="_blank" title="Qt Creator与Qt Designer有什么不一样？">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> Creator与<em>Qt</em> <em>Designer</em>有什么不一样？				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">05-19</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							9872</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/Lina_ACM/article/details/51457220" target="_blank" title="Qt Creator与Qt Designer有什么不一样？">
+							<span class="desc oneline">QtCreator里集成了QtDesignerQtCreator里有：Editor,Assistant,Designer,Debuger因此，QtCreator是一个IDE，也就是一个集成开发环境，里...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/Lina_ACM">来自：	<span class="blog_title"> 2puT</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+          <div class="recommend-item-box blog-expert-recommend-box">
+				<div class="d-flex">
+					<div class="blog-expert-recommend">
+						<div class="blog-expert">
+							<div class="blog-expert-flexbox"></div>
+						</div>
+					</div>
+				</div>
+      </div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/shangxiaqiusuo1/article/details/81035046,BlogCommendFromThirdService_10"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/shangxiaqiusuo1/article/details/81035046" target="_blank" title="PyQt5+Qt designer实战">
+				<h4 class="text-truncate oneline">
+						Py<em>Qt</em>5+<em>Qt</em> <em>designer</em>实战				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-13</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/shangxiaqiusuo1/article/details/81035046" target="_blank" title="PyQt5+Qt designer实战">
+							<span class="desc oneline">PyQt5+Qtdesigner制作计算器配置说明：Anaconda4.2.0(64-bit)Python3.5.2首先，在Qtdesigner里面设计界面：打开Qtdesigner后，设计界面如下所...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/shangxiaqiusuo1">来自：	<span class="blog_title"> shangxiaqiusuo1的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/view994/article/details/84861190,BlogCommendFromThirdService_11"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/view994/article/details/84861190" target="_blank" title="QtDesigner &amp; pyqt5 基本使用">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em><em>Designer</em> &amp; py<em>qt</em>5 基本<em>使用</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">12-06</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							874</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/view994/article/details/84861190" target="_blank" title="QtDesigner &amp; pyqt5 基本使用">
+							<span class="desc oneline">文章目录控件基本用法button单击普通按钮保持状态的按钮labellabel显示文字label显示图片label显示视频其他基础操作文件对话框多个主界面之间切换控件基本用法button单击普通按钮b...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/view994">来自：	<span class="blog_title"> 雅诗</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/haha1fan/article/details/55098127,BlogCommendFromThirdService_12"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/haha1fan/article/details/55098127" target="_blank" title="新手pyqt5初步安装，及用python运行qt designer生成的UI代码">
+				<h4 class="text-truncate oneline">
+						新手py<em>qt</em>5初步安装，及用python运行<em>qt</em> <em>designer</em>生成的UI代码				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-14</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/haha1fan/article/details/55098127" target="_blank" title="新手pyqt5初步安装，及用python运行qt designer生成的UI代码">
+							<span class="desc oneline">一：初步安装pyqt5首先说明一下，安装pyqt5不用预安装sip等搞一大堆东西，直接安装pyqt5就可以了。环境:win7Python版本：Python3.4.1（官网）https://www.py...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/haha1fan">来自：	<span class="blog_title"> 巴山夜雨</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_61" data-pid="61" data-track-view='{"mod":"kp_popu_61-557","con":",,"}' data-track-click='{"mod":"kp_popu_61-557","con":",,"}'><div id="three_ad13" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad13",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jxwzh/article/details/81673223,BlogCommendFromThirdService_13"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/jxwzh/article/details/81673223" target="_blank" title="使用Qt Designer进行布局">
+				<h4 class="text-truncate oneline">
+						<em>使用</em><em>Qt</em> <em>Designer</em>进行布局				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-14</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							9155</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/jxwzh/article/details/81673223" target="_blank" title="使用Qt Designer进行布局">
+							<span class="desc oneline">欢迎加入QQ群:853840665,群内分享大量资料，供大家学习   在使用Form之前，需要将Form上的对象放置到布局中。这确保在应用程序中预览或使用Form时，对象将正确显示。在布局中放置对象还...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/jxwzh">来自：	<span class="blog_title"> jxwzh的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Hubz131/article/details/79352443,BlogCommendFromThirdService_14"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/Hubz131/article/details/79352443" target="_blank" title="PyQt5+Qt Designer">
+				<h4 class="text-truncate oneline">
+						Py<em>Qt</em>5+<em>Qt</em> <em>Designer</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-23</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							2万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/Hubz131/article/details/79352443" target="_blank" title="PyQt5+Qt Designer">
+							<span class="desc oneline">1.在cmd中使用(我用的是3.6版本):pip3.6installpyqt5 来下载PyQt5的程序2.接下来如果发现没有designer.exe，在cmd中使用pip3.6installPyQt5...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/Hubz131">来自：	<span class="blog_title"> Hubz131的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Shyllin/article/details/81907668,BlogCommendFromBaidu_15"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/Shyllin/article/details/81907668" target="_blank" title="使用Qt designer和eric6开发GUI软件">
+				<h4 class="text-truncate oneline">
+						<em>使用</em><em>Qt</em> <em>designer</em>和eric6开发GUI软件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-22</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1372</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/Shyllin/article/details/81907668" target="_blank" title="使用Qt designer和eric6开发GUI软件">
+							<span class="desc oneline">1.PyQt5和eric6安装PyQt5下载地址PyQt5的安装（一路next）安装验证C:\Users\Shylin&amp;amp;amp;amp;gt;pythonPython3.6.4|Anacond...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/Shyllin">来自：	<span class="blog_title"> Shyllin的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/shangxiaqiusuo1/article/details/82709312,BlogCommendFromBaidu_16"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/shangxiaqiusuo1/article/details/82709312" target="_blank" title="qt designer 里面的布局问题记录">
+				<h4 class="text-truncate oneline">
+						<em>qt</em> <em>designer</em> 里面的布局问题记录				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-14</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							365</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/shangxiaqiusuo1/article/details/82709312" target="_blank" title="qt designer 里面的布局问题记录">
+							<span class="desc oneline">在用pyqt5进行操作的时候，用到了qtdesigner来进行界面的制作。当所有的控件都设定好了后，对每个控件进行了单独的布局操作，但是，当程序运行了之后发现界面不会随着窗口的拉伸而改变，当窗口放到很...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/shangxiaqiusuo1">来自：	<span class="blog_title"> shangxiaqiusuo1的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/esting_tang/article/details/81082504,BlogCommendFromBaidu_17"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/esting_tang/article/details/81082504" target="_blank" title="PyCharm+PyQt5+QtDesigner配置">
+				<h4 class="text-truncate oneline">
+						PyCharm+Py<em>Qt</em>5+<em>Qt</em><em>Designer</em>配置				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-17</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							6354</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/esting_tang/article/details/81082504" target="_blank" title="PyCharm+PyQt5+QtDesigner配置">
+							<span class="desc oneline">关于最近要在python下做可视化界面的设计，想到之前用QtDesigner来画界面很是方便，当时画完之后都要手动在终端输入pyuic5-o1.py1.ui来把.ui文件转换为.py的代码再进行编辑，...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/esting_tang">来自：	<span class="blog_title"> 路在脚下，更在心中</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_62" data-pid="62" data-track-view='{"mod":"kp_popu_62-809","con":",,"}' data-track-click='{"mod":"kp_popu_62-809","con":",,"}'><script
+    async="async"
+    charset="utf-8"
+    src="https://shared.ydstatic.com/js/yatdk/3.0.1/stream.js"
+    data-id="6cb24153a03289ff3597c7aab4b69fe9"
+    data-div-Style="width:100%;"
+data-tit-Style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;"
+data-des-Style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;"
+data-img-Style="float:left;margin-right:15px;width:90px;height:60px;">
+</script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yao_hou/article/details/80769560,BlogCommendFromBaidu_18"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/yao_hou/article/details/80769560" target="_blank" title="Qt 添加菜单及菜单的事件响应（完整的示例）">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> 添加菜单及菜单的事件响应（完整的示例）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">06-22</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8372</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/yao_hou/article/details/80769560" target="_blank" title="Qt 添加菜单及菜单的事件响应（完整的示例）">
+							<span class="desc oneline">Qt添加菜单有两种方法，一是用代码直接手动添加，二是在Qtdesigner中在界面上直接添加。先介绍用代码如何添加。需要用到两个类QMenu和QAction，例如我的Demo程序界面如下：对于“新建”...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/yao_hou">来自：	<span class="blog_title"> yao_hou的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jiangjieqazwsx/article/details/80084557,BlogCommendFromThirdService_19"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/jiangjieqazwsx/article/details/80084557" target="_blank" title="QT入门级小项目(vs2015+qt designer混合编程)">
+				<h4 class="text-truncate oneline">
+						<em>QT</em>入门级小项目(vs2015+<em>qt</em> <em>designer</em>混合编程)				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">04-25</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8173</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/jiangjieqazwsx/article/details/80084557" target="_blank" title="QT入门级小项目(vs2015+qt designer混合编程)">
+							<span class="desc oneline">   划重点：      在vs里面使用c++和qtdesigner开发一个动态计算加法的小工具。  最近想做一个界面，而且QT也是自己一直想学的东西，于是就查了一下python+qt和c++与Qt开...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/jiangjieqazwsx">来自：	<span class="blog_title"> 小长冲冲里的一只羊的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sqy941013/article/details/80572606,BlogCommendFromThirdService_20"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/sqy941013/article/details/80572606" target="_blank" title="PyQT5速成教程-2 Qt Designer介绍与入门">
+				<h4 class="text-truncate oneline">
+						Py<em>QT</em>5速成教程-2 <em>Qt</em> <em>Designer</em>介绍与入门				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">06-04</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							6453</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/sqy941013/article/details/80572606" target="_blank" title="PyQT5速成教程-2 Qt Designer介绍与入门">
+							<span class="desc oneline">QtDesigner的介绍在PyQt中编写UI界面可以直接通过代码来实现，也可以通过QtDesigner来完成。QtDesigner的设计符合MVC的架构，其实现了视图和逻辑的分离，从而实现了开发的便...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/sqy941013">来自：	<span class="blog_title"> AI Programming</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_38603541/article/details/79334770,BlogCommendFromThirdService_21"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_38603541/article/details/79334770" target="_blank" title="Qt Creator集成开发环境的安装与配置（Qt_V4）">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> Creator集成开发环境的安装与配置（<em>Qt</em>_V4）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-18</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							7197</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_38603541/article/details/79334770" target="_blank" title="Qt Creator集成开发环境的安装与配置（Qt_V4）">
+							<span class="desc oneline">QtCreator简介:QtCreator是一款轻量级的具有跨平台特性的集成开发环境。在该平台可以编写并编译运行C/C++源代码程序，并可以实现其良好的跨平台设计和图形界面的设计和开发。 安装包下载：...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_38603541">来自：	<span class="blog_title"> 永恒之蓝</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_38090427/article/details/83827678,BlogCommendFromThirdService_22"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/weixin_38090427/article/details/83827678" target="_blank" title="Qt Creator的下载和安装">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> Creator的下载和安装				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-08</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/weixin_38090427/article/details/83827678" target="_blank" title="Qt Creator的下载和安装">
+							<span class="desc oneline">Qt和QtCreator的区别Qt是C++的一个库，或者说是开发框架，里面集成了一些库函数，提高开发效率。QtCreator是一个IDE，就是一个平台，一个开发环境，类似的比如说VS，也可以进行Qt开...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/weixin_38090427">来自：	<span class="blog_title"> 从0开始学编程</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_63" data-pid="63" data-track-view='{"mod":"kp_popu_63-809","con":",,"}' data-track-click='{"mod":"kp_popu_63-809","con":",,"}'><script
+    async="async"
+    charset="utf-8"
+    src="https://shared.ydstatic.com/js/yatdk/3.0.1/stream.js"
+    data-id="6cb24153a03289ff3597c7aab4b69fe9"
+    data-div-Style="width:100%;"
+data-tit-Style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;"
+data-des-Style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;"
+data-img-Style="float:left;margin-right:15px;width:90px;height:60px;">
+</script></div></div>
+    
+    			<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/shangxiaqiusuo1/10668730,BlogCommendFromBaidu_23"}'>
+			<a href="https://download.csdn.net/download/shangxiaqiusuo1/10668730" target="_blank">
+				<div class="content clearfix">
+					<div class="">
+						<h4 class="text-truncate oneline clearfix">
+							py<em>qt</em>5与<em>qt</em> <em>designer</em>结合开发						</h4>
+						<span class="data float-right">09-15</span>
+					</div>
+					<div class="desc oneline">
+							本软件对于初始学习pyqt5的人有很大的好处，里面涉及到多种功能的运用，比较详细，并且对于用过qt designer的人来说可以迅速的掌握pyqt5与designer的配合使用的方法，对于尽快掌握py					</div>
+          <span class="type-show type-show-download">下载</span>
+				</div>
+			</a>
+		</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_25973779/article/details/79897679,BlogCommendFromBaidu_24"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_25973779/article/details/79897679" target="_blank" title="02.Qt Designer的使用-----PyQt5编程开发">
+				<h4 class="text-truncate oneline">
+						02.<em>Qt</em> <em>Designer</em>的<em>使用</em>-----Py<em>Qt</em>5编程开发				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">04-11</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							749</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_25973779/article/details/79897679" target="_blank" title="02.Qt Designer的使用-----PyQt5编程开发">
+							<span class="desc oneline">QtDesigner，是一个强大、灵活的可视化GUI设计工具，可以帮助我们加快开发PyQt程序的速度。是专门用来制作PyQt程序中UI界面的工具，ta生成的UI界面是一个后缀为.ui的文件。该文件可以...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_25973779">来自：	<span class="blog_title"> 爱草莓的番茄酱的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ysgjiangsu/article/details/77989306,BlogCommendFromBaidu_25"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/ysgjiangsu/article/details/77989306" target="_blank" title="[PyQt]使用Qt Designer设计师完成PyQt界面图标设计">
+				<h4 class="text-truncate oneline">
+						[Py<em>Qt</em>]<em>使用</em><em>Qt</em> <em>Designer</em><em>设计</em>师完成Py<em>Qt</em><em>界面</em>图标<em>设计</em>				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-15</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							7439</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/ysgjiangsu/article/details/77989306" target="_blank" title="[PyQt]使用Qt Designer设计师完成PyQt界面图标设计">
+							<span class="desc oneline">开发环境Python3.5.3+PyQt5.6+PyCharm2017.2开发环境暂不赘述，打开QtDesigner后，右键空白处添加工具栏顶栏处文件编辑关于都是通过双击在这里输入后，键入名称后回车实...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/ysgjiangsu">来自：	<span class="blog_title"> 江东风又起</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_22122811/article/details/76597503,BlogCommendFromBaidu_26"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_22122811/article/details/76597503" target="_blank" title="QT问题系列（1） - 如何预览QtCreator中的界面？">
+				<h4 class="text-truncate oneline">
+						<em>QT</em>问题系列（1） - 如何预览<em>Qt</em>Creator中的<em>界面</em>？				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-02</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3081</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_22122811/article/details/76597503" target="_blank" title="QT问题系列（1） - 如何预览QtCreator中的界面？">
+							<span class="desc oneline">如何预览QtCreator的界面？当在QtCreator界面编辑器中放置好布局和控件之后，我们需要看一下摆放的对不对，组合键可以实现预览功能：Alt+Shift+R。转自：http://qtfuns....</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_22122811">来自：	<span class="blog_title"> MatthewMao</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    			<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/piaolaideyun/468983,BlogCommendFromBaidu_27"}'>
+			<a href="https://download.csdn.net/download/piaolaideyun/468983" target="_blank">
+				<div class="content clearfix">
+					<div class="">
+						<h4 class="text-truncate oneline clearfix">
+							<em>qt</em> <em>designer</em>						</h4>
+						<span class="data float-right">05-27</span>
+					</div>
+					<div class="desc oneline">
+							图形界面设计器一个软件的使用					</div>
+          <span class="type-show type-show-download">下载</span>
+				</div>
+			</a>
+		</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_64" data-pid="64" data-track-view='{"mod":"kp_popu_64-809","con":",,"}' data-track-click='{"mod":"kp_popu_64-809","con":",,"}'><script
+    async="async"
+    charset="utf-8"
+    src="https://shared.ydstatic.com/js/yatdk/3.0.1/stream.js"
+    data-id="6cb24153a03289ff3597c7aab4b69fe9"
+    data-div-Style="width:100%;"
+data-tit-Style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;"
+data-des-Style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;"
+data-img-Style="float:left;margin-right:15px;width:90px;height:60px;">
+</script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident recommend-other-item-box"  data-track-click='{"mod":"popu_614","con":",https://bbs.csdn.net/topics/380080146,BlogCommendFromBaidu_28"}'>
+		<a href="https://bbs.csdn.net/topics/380080146" target="_blank">
+			<h4 class="text-truncate oneline">
+					菜鸟跪求<em>qt</em> <em>designer</em>d如何加入工具栏			</h4>
+			<div class="info-box d-flex align-content-center">
+					<span class="date">12-01</span>
+			</div>
+			<p class="content oneline">
+        <span class="desc oneline">qt designerd如何加入工具栏，再做一个qt的界面设计，不会添加工具栏 ，求高手帮忙</span>
+                  <span class="type-show type-show-bbs">论坛</span>
+        			</p>
+		</a>
+
+	</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/chlk118/article/details/72595325,BlogCommendFromBaidu_29"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/chlk118/article/details/72595325" target="_blank" title="PyQt5使用Designer设计UI的两种实现方式">
+				<h4 class="text-truncate oneline">
+						Py<em>Qt</em>5<em>使用</em><em>Designer</em><em>设计</em>UI的两种实现方式				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">05-21</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/chlk118/article/details/72595325" target="_blank" title="PyQt5使用Designer设计UI的两种实现方式">
+							<span class="desc oneline">在上一篇博客Python界面库-PyQt5初探中留了一个坑，那就是如何利用Qt的Designer设计出的UI文件。本篇博客就来研究这个问题。请注意：这里只是讲如何使用Ui文件，而不会讲如何设计Ui文件...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/chlk118">来自：	<span class="blog_title"> kestiny的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/oxuzhenyi/article/details/54982577,BlogCommendFromBaidu_30"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/oxuzhenyi/article/details/54982577" target="_blank" title="人机对战初体验:Python基于Pygame实现四子棋游戏">
+				<h4 class="text-truncate oneline">
+						人机对战初体验:Python基于Pygame实现四子棋游戏				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-11</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3295</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/oxuzhenyi/article/details/54982577" target="_blank" title="人机对战初体验:Python基于Pygame实现四子棋游戏">
+							<span class="desc oneline">人机对战初体验—四子棋游戏继去年3月人机大战引发全球瞩目以来，围棋AI（人工智能）再度引发跨领域的关注：一个叫Master的围棋AI，几天时间，面对中日韩顶尖职业围棋选手，已取得60胜0败的恐怖战绩，...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/oxuzhenyi">来自：	<span class="blog_title"> oxuzhenyi的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_37369201/article/details/83547107,BlogCommendFromBaidu_31"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_37369201/article/details/83547107" target="_blank" title="Python——用Pygame画简单图形">
+				<h4 class="text-truncate oneline">
+						Python——用Pygame画简单图形				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">10-31</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							758</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_37369201/article/details/83547107" target="_blank" title="Python——用Pygame画简单图形">
+							<span class="desc oneline">前边已经了解到编程的很多基本要素：输入和输出、变量、判断、循环、列表、函数、对象和模块。下边开始就要用Python完成一些更有意思的事情啦！...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_37369201">来自：	<span class="blog_title"> surymy</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident recommend-other-item-box"  data-track-click='{"mod":"popu_614","con":",https://bbs.csdn.net/topics/390951797,BlogCommendFromBaidu_32"}'>
+		<a href="https://bbs.csdn.net/topics/390951797" target="_blank">
+			<h4 class="text-truncate oneline">
+					用<em>qt</em>做画图板的问题			</h4>
+			<div class="info-box d-flex align-content-center">
+					<span class="date">12-11</span>
+			</div>
+			<p class="content oneline">
+        <span class="desc oneline">菜鸟一个，比着网上的代码敲的，敲完之后不显示画板，真心求教 #ifndef PAINTAREA_H #define PAINTAREA_H #include &lt;QWidget&gt; #include&lt;QP</span>
+                  <span class="type-show type-show-bbs">论坛</span>
+        			</p>
+		</a>
+
+	</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_65" data-pid="65" data-track-view='{"mod":"kp_popu_65-809","con":",,"}' data-track-click='{"mod":"kp_popu_65-809","con":",,"}'><script
+    async="async"
+    charset="utf-8"
+    src="https://shared.ydstatic.com/js/yatdk/3.0.1/stream.js"
+    data-id="6cb24153a03289ff3597c7aab4b69fe9"
+    data-div-Style="width:100%;"
+data-tit-Style="margin-bottom: 6px; font-size: 18px; line-height: 24px; color: #3d3d3d;display: inline-block;font-weight:bold;"
+data-des-Style="font-size: 13px; line-height: 22px; white-space: normal; color: #999;"
+data-img-Style="float:left;margin-right:15px;width:90px;height:60px;">
+</script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wishchin/article/details/18937305,BlogCommendFromBaidu_33"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/wishchin/article/details/18937305" target="_blank" title="使用QT创建PythonGUI程序">
+				<h4 class="text-truncate oneline">
+						<em>使用</em><em>QT</em>创建PythonGUI程序				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-06</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4217</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/wishchin/article/details/18937305" target="_blank" title="使用QT创建PythonGUI程序">
+							<span class="desc oneline">PyQt向Python程序员提供了使用完整Qt应用程序接口的方法。您几乎可以用Python做任何C++能做的事。既然是应用程序接口，用C++或是Python都是一样的。于是“为什么我得使用它”这个问题...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/wishchin">来自：	<span class="blog_title"> wishchinYang的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/PG_peng/article/details/84110698,BlogCommendFromBaidu_34"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/PG_peng/article/details/84110698" target="_blank" title="使用Pycharm编写第一个python程序">
+				<h4 class="text-truncate oneline">
+						<em>使用</em>Pycharm编写第一个python程序				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-15</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							108</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/PG_peng/article/details/84110698" target="_blank" title="使用Pycharm编写第一个python程序">
+							<span class="desc oneline">打开Pycharm，选择CreateNewProject，创建一个新项目选择PurePython表示创建一个纯Python程序项目,Location表示该项目保存的路径，Interpreter表示使用...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/PG_peng">来自：	<span class="blog_title"> PG_peng的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_35661436/article/details/52239393,BlogCommendFromBaidu_35"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_35661436/article/details/52239393" target="_blank" title="python之pygame使surface对象移动起来（一）">
+				<h4 class="text-truncate oneline">
+						python之pygame使surface对象移动起来（一）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-18</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							2619</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_35661436/article/details/52239393" target="_blank" title="python之pygame使surface对象移动起来（一）">
+							<span class="desc oneline">importpygameimportsys#pygame是一个包，要将pygame初始化，让里面的类做好准备pygame.init()#初始化bg=(213,1,144)speed=[-2,1]siz...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_35661436">来自：	<span class="blog_title"> qq_1443539042的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012135461/article/details/77833316,BlogCommendFromBaidu_36"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/u012135461/article/details/77833316" target="_blank" title="在QtDesigner中添加QVTKWidget">
+				<h4 class="text-truncate oneline">
+						在<em>Qt</em><em>Designer</em>中添加QVTKWidget				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-04</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							2992</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/u012135461/article/details/77833316" target="_blank" title="在QtDesigner中添加QVTKWidget">
+							<span class="desc oneline">粘贴进入Qtdesigner点帮助-&gt;关于插件-&gt;刷新QVTK就出来了</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/u012135461">来自：	<span class="blog_title"> 小熊的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident recommend-other-item-box"  data-track-click='{"mod":"popu_614","con":",https://bbs.csdn.net/topics/392355449,BlogCommendFromBaidu_37"}'>
+		<a href="https://bbs.csdn.net/topics/392355449" target="_blank">
+			<h4 class="text-truncate oneline">
+					求助<em>QT</em><em>designer</em>能不能做下面这个<em>界面</em>，中间那个刻度一样的要怎么弄啊			</h4>
+			<div class="info-box d-flex align-content-center">
+					<span class="date">04-10</span>
+			</div>
+			<p class="content oneline">
+        <span class="desc oneline">-</span>
+                  <span class="type-show type-show-bbs">论坛</span>
+        			</p>
+		</a>
+
+	</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_66" data-pid="66" data-track-view='{"mod":"kp_popu_66-881","con":",,"}' data-track-click='{"mod":"kp_popu_66-881","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T38_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T38  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T38_render", "T38");
+</script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u014453898/article/details/69638588,BlogCommendFromBaidu_38"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/u014453898/article/details/69638588" target="_blank" title="qt利用QT designer构建第一个界面helloworld工程">
+				<h4 class="text-truncate oneline">
+						<em>qt</em>利用<em>QT</em> <em>designer</em>构建第一个<em>界面</em>helloworld工程				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">04-07</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4744</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/u014453898/article/details/69638588" target="_blank" title="qt利用QT designer构建第一个界面helloworld工程">
+							<span class="desc oneline">第一步：点击NewProject第二步：选择QtWidgets第三步：项目名称和保存路径第四步：一直点击下一步第五步：点击编译执行就能出现第界面框了这个界面是什么都没有的。第六步：双击红框处，会出现界...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/u014453898">来自：	<span class="blog_title"> ZJE</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/TJU355/article/details/7650236,BlogCommendFromBaidu_39"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/TJU355/article/details/7650236" target="_blank" title="Qt Designer 不同容器使用方法">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> <em>Designer</em> 不同容器<em>使用</em>方法				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">06-10</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							2417</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/TJU355/article/details/7650236" target="_blank" title="Qt Designer 不同容器使用方法">
+							<span class="desc oneline">QtDesigner 不同容器使用方法是本文要介绍的内容，容器控件对成组的form之上的控件提供高级的控制.它们可以用来实现各种各样的功能,例如管理输入控件,为其它控件提供分页,列表,或者只用作装饰容...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/TJU355">来自：	<span class="blog_title"> TJU355的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lttingjj/article/details/78217092,BlogCommendFromBaidu_40"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/lttingjj/article/details/78217092" target="_blank" title="用Qt Designer 给对话框控件添加背景图片和颜色或者插入图片">
+				<h4 class="text-truncate oneline">
+						用<em>Qt</em> <em>Designer</em> 给对话框控件添加背景图片和颜色或者插入图片				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">10-12</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							9219</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/lttingjj/article/details/78217092" target="_blank" title="用Qt Designer 给对话框控件添加背景图片和颜色或者插入图片">
+							<span class="desc oneline">一、将图片资源添加进QtDesigner：1、用XML格式写一个类似这样的.qrc文件，将图片相对路径添加进去：  images/config.png  images/query.png  image...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/lttingjj">来自：	<span class="blog_title"> lttingjj的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhengbin9/article/details/82729914,BlogCommendFromBaidu_41"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/zhengbin9/article/details/82729914" target="_blank" title="PyCharm配置QtDesigner、PyUIC、PyInstaller编译PyQt5成EXE">
+				<h4 class="text-truncate oneline">
+						PyCharm配置<em>Qt</em><em>Designer</em>、PyUIC、PyInstaller编译Py<em>Qt</em>5成EXE				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-16</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							91</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/zhengbin9/article/details/82729914" target="_blank" title="PyCharm配置QtDesigner、PyUIC、PyInstaller编译PyQt5成EXE">
+							<span class="desc oneline">在PyCharm里打开Settings→Tools→ExternalTools添加如下：Name：QtDesignerProgram：C:\Python36\Lib\site-packages\pyq...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/zhengbin9">来自：	<span class="blog_title"> 蓝壳优码库</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lyzwjaa/article/details/79429901,BlogCommendFromBaidu_42"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/lyzwjaa/article/details/79429901" target="_blank" title="python3+PyQt5+Qt designer+pycharm安装及配置+将ui文件转py文件">
+				<h4 class="text-truncate oneline">
+						python3+Py<em>Qt</em>5+<em>Qt</em> <em>designer</em>+pycharm安装及配置+将ui文件转py文件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">03-03</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8402</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/lyzwjaa/article/details/79429901" target="_blank" title="python3+PyQt5+Qt designer+pycharm安装及配置+将ui文件转py文件">
+							<span class="desc oneline">说明：因为个人装pyqt和designer的时候绕了很多弯路，所以特此记下来希望大家不要再绕弯路了，qtdesigner不需要装qtcreator，只需用pip配置，这篇文章是对http://blog...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/lyzwjaa">来自：	<span class="blog_title"> lyzwjaa的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_67" data-pid="67" data-track-view='{"mod":"kp_popu_67-882","con":",,"}' data-track-click='{"mod":"kp_popu_67-882","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T43_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T43  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T43_render", "T43");
+</script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dbzhang800/article/details/6871693,BlogCommendFromBaidu_43"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/dbzhang800/article/details/6871693" target="_blank" title="Qt Designer中自定义控件的使用(提升法与插件法)">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> <em>Designer</em>中自定义控件的<em>使用</em>(提升法与插件法)				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">10-13</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/dbzhang800/article/details/6871693" target="_blank" title="Qt Designer中自定义控件的使用(提升法与插件法)">
+							<span class="desc oneline">准备乱写一点Qt自定义Widget在Designer中的使用。可是又不想重复提升法(promotion)及插件法基本用法，因为Manual中UsingCustomWidgetswithQtDesign...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/dbzhang800">来自：	<span class="blog_title"> 1+1=10</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/whu3s/article/details/82751630,BlogCommendFromBaidu_44"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/whu3s/article/details/82751630" target="_blank" title="如何解决QT designer不能打开">
+				<h4 class="text-truncate oneline">
+						如何解决<em>QT</em> <em>designer</em>不能打开				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-18</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							255</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/whu3s/article/details/82751630" target="_blank" title="如何解决QT designer不能打开">
+							<span class="desc oneline">环境VS2010　　+　　Qt551X64　　+　　QTVS插件：qt-vs-addin-1.2.1-opensource安装上述软件之后，配置了环境变化，并在VS的QT菜单中进行了设置问题：在ＶS中...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/whu3s">来自：	<span class="blog_title"> whu3s的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    			<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/xianting77/10043398,BlogCommendFromBaidu_45"}'>
+			<a href="https://download.csdn.net/download/xianting77/10043398" target="_blank">
+				<div class="content clearfix">
+					<div class="">
+						<h4 class="text-truncate oneline clearfix">
+							<em>Qt</em> <em>Designer</em>快速入门						</h4>
+						<span class="data float-right">10-29</span>
+					</div>
+					<div class="desc oneline">
+							此文意在引导初学者使用 Qt Designer 快速的入门编写界面，不关心底层的 c++ 实现 ， 只用敲几行代码					</div>
+          <span class="type-show type-show-download">下载</span>
+				</div>
+			</a>
+		</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_30043465/article/details/54289119,BlogCommendFromBaidu_46"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_30043465/article/details/54289119" target="_blank" title="PythonUI_QtDesigner的ui文件转为py文件">
+				<h4 class="text-truncate oneline">
+						PythonUI_<em>Qt</em><em>Designer</em>的ui文件转为py文件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">01-09</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_30043465/article/details/54289119" target="_blank" title="PythonUI_QtDesigner的ui文件转为py文件">
+							<span class="desc oneline">py文件这样生成：在cmd控制台下,进入uic目录:cdC:\Cocos\tools\Python27\Lib\site-packages\PyQt4\uic输入命令pythonpyuic.py&quot;ui...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_30043465">来自：	<span class="blog_title"> ShirleyPaul_SmallWorld</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qter_wd007/article/details/5347479,BlogCommendFromBaidu_47"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qter_wd007/article/details/5347479" target="_blank" title="Qt 4常见的IDE及其优缺点比较-推荐Qt Creator和Eclipse">
+				<h4 class="text-truncate oneline">
+						<em>Qt</em> 4常见的IDE及其优缺点比较-推荐<em>Qt</em> Creator和Eclipse				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">03-04</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8168</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qter_wd007/article/details/5347479" target="_blank" title="Qt 4常见的IDE及其优缺点比较-推荐Qt Creator和Eclipse">
+							<span class="desc oneline">现在支持Qt的IDE（集成开发环境，以下简称IDE）有很多种，其中能够像Qt一样跨平台使用的主要有QtCreator、QDevelop、Eclipse、MonkeyStudio、Code::Block...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qter_wd007">来自：	<span class="blog_title"> qter_wd007的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    <div class="recommend-item-box recommend-ad-box"><div id="kp_box_68" data-pid="68" data-track-view='{"mod":"kp_popu_68-883","con":",,"}' data-track-click='{"mod":"kp_popu_68-883","con":",,"}'><!-- T48 位置 -->
+<script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T48_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T48  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T48_render", "T48");
+</script></div></div>
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/spark_fountain/article/details/75103719,BlogCommendFromBaidu_48"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/spark_fountain/article/details/75103719" target="_blank" title="QT creator使用过程总结">
+				<h4 class="text-truncate oneline">
+						<em>QT</em> creator<em>使用</em>过程总结				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-14</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4285</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/spark_fountain/article/details/75103719" target="_blank" title="QT creator使用过程总结">
+							<span class="desc oneline">对于初次使用QT来说，着实有很多坑。这里总结使用QT一周的经验。1。 安装QT我是用VS2015编译环境。https://www.qt.io/download-open-source/ 下载QT5.9...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/spark_fountain">来自：	<span class="blog_title"> spark_fountain的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/farsight2009/article/details/53199065,BlogCommendFromBaidu_49"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/farsight2009/article/details/53199065" target="_blank" title="如何使用Qt Designer生成的ui文件">
+				<h4 class="text-truncate oneline">
+						如何<em>使用</em><em>Qt</em> <em>Designer</em>生成的ui文件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-17</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3242</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/farsight2009/article/details/53199065" target="_blank" title="如何使用Qt Designer生成的ui文件">
+							<span class="desc oneline">进行Qt应用程序开发时，经常利用QtDesigner来进行图形用户界面的设计工作。利用它进行图形界面的设计工作有着直观、方面、易于后期维护的优点。...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/farsight2009">来自：	<span class="blog_title"> 华清远见 | 程序员的学习天堂</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u011860731/article/details/48733073,BlogCommendHotData_0"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/u011860731/article/details/48733073" target="_blank" title="ThreadLocal的设计理念与作用">
+				<h4 class="text-truncate oneline">
+						ThreadLocal的设计理念与作用				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-25</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							7万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/u011860731/article/details/48733073" target="_blank" title="ThreadLocal的设计理念与作用">
+							<span class="desc oneline">Java中的ThreadLocal类允许我们创建只能被同一个线程读写的变量。因此，如果一段代码含有一个ThreadLocal变量的引用，即使两个线程同时执行这段代码，它们也无法访问到对方的Thread...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/u011860731">来自：	<span class="blog_title"> u011860731的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lx624909677/article/details/17592209,BlogCommendHotData_1"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/lx624909677/article/details/17592209" target="_blank" title="VC 双击编辑ListControl中的数据">
+				<h4 class="text-truncate oneline">
+						VC 双击编辑ListControl中的数据				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">12-26</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/lx624909677/article/details/17592209" target="_blank" title="VC 双击编辑ListControl中的数据">
+							<span class="desc oneline">最近在拿一些小的项目练习MFC，遇到不少问题，期中之一便是修改列表框中的数据，查阅了一些资料，总结了一些方法，把期中最简单方便的一种方法在这里做简单介绍。
+想要双击实现修改列表框内容，只需四步：
+
+
+...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/lx624909677">来自：	<span class="blog_title"> 挨踢生涯</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zztfj/article/details/10103621,BlogCommendHotData_2"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/zztfj/article/details/10103621" target="_blank" title="单机最大的TCP连接数及其修改">
+				<h4 class="text-truncate oneline">
+						单机最大的TCP连接数及其修改				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-20</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							2万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/zztfj/article/details/10103621" target="_blank" title="单机最大的TCP连接数及其修改">
+							<span class="desc oneline">单机最大的TCP连接数及其修改
+一个误解: 单个服务器程序可承受最大连接数“理论”上是“65535” .
+   65535这个数字的由来，很多人想当然地将它与port最大值联系起来。的确，TCP的...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/zztfj">来自：	<span class="blog_title"> 田发江的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/a635661820/article/details/45390671,BlogCommendHotData_3"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/a635661820/article/details/45390671" target="_blank" title="LSTM简介以及数学推导(FULL BPTT)">
+				<h4 class="text-truncate oneline">
+						LSTM简介以及数学推导(FULL BPTT)				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">04-30</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/a635661820/article/details/45390671" target="_blank" title="LSTM简介以及数学推导(FULL BPTT)">
+							<span class="desc oneline">前段时间看了一些关于LSTM方面的论文，一直准备记录一下学习过程的，因为其他事儿，一直拖到了现在，记忆又快模糊了。现在赶紧补上，本文的组织安排是这样的：先介绍rnn的BPTT所存在的问题，然后介绍最初...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/a635661820">来自：	<span class="blog_title"> 天道酬勤，做一个务实的理想主义者</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_4"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<h4 class="text-truncate oneline">
+						关于SpringBoot bean无法注入的问题（与文件包位置有关）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">12-16</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							21万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+							<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/damenhanter/article/details/50474449,BlogCommendHotData_5"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/damenhanter/article/details/50474449" target="_blank" title="23种设计模式目录总览">
+				<h4 class="text-truncate oneline">
+						23种设计模式目录总览				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">01-07</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3811</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/damenhanter/article/details/50474449" target="_blank" title="23种设计模式目录总览">
+							<span class="desc oneline">目录
+创建型
+1. Factory Method（工厂方法）
+2. Abstract Factory（抽象工厂）
+3. Builder（建造者）
+4. Prototype（原型）
+5. S...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/damenhanter">来自：	<span class="blog_title"> damenhanter的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/nthack5730/article/details/51901593,BlogCommendHotData_6"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/nthack5730/article/details/51901593" target="_blank" title="JavaFX - 实现管理多个Stage窗口切换及源码解析">
+				<h4 class="text-truncate oneline">
+						JavaFX - 实现管理多个Stage窗口切换及源码解析				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-13</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/nthack5730/article/details/51901593" target="_blank" title="JavaFX - 实现管理多个Stage窗口切换及源码解析">
+							<span class="desc oneline">前言
+
+     JavaFX相比AWT就是和Android一样通过xml文件来定义界面的设计，并且可以通过fxml资源文件结合Java代码来控制界面的变化。摒弃之前写AWT那种什么都在Java代码中...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/nthack5730">来自：	<span class="blog_title"> 机智猫</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lmj623565791/article/details/46767825,BlogCommendHotData_7"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/lmj623565791/article/details/46767825" target="_blank" title="Android 增强版百分比布局库  为了适配而扩展">
+				<h4 class="text-truncate oneline">
+						Android 增强版百分比布局库  为了适配而扩展				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-06</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							15万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/lmj623565791/article/details/46767825" target="_blank" title="Android 增强版百分比布局库  为了适配而扩展">
+							<span class="desc oneline">转载请标明出处： 
+  http://blog.csdn.net/lmj623565791/article/details/46767825； 
+  本文出自:【张鸿洋的博客】
+
+
+一 概述
+
+上周一...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/lmj623565791">来自：	<span class="blog_title"> Hongyang</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_8"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<h4 class="text-truncate oneline">
+						jquery/js实现一个网页同时调用多个倒计时(最新的)				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-25</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							48万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+							<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/luyan_abaci/article/details/48014807,BlogCommendHotData_9"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/luyan_abaci/article/details/48014807" target="_blank" title="VS下生成与配置静态库与动态库（一）">
+				<h4 class="text-truncate oneline">
+						VS下生成与配置静态库与动态库（一）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-26</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							6420</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/luyan_abaci/article/details/48014807" target="_blank" title="VS下生成与配置静态库与动态库（一）">
+							<span class="desc oneline">此处仅以VS2010为例，详细说明一下如何在VS环境下生成和使用C++的静态库与动态库。Qt下生成和使用静态和动态库后续再讲。
+本文仅供初学者参考，如果有问题欢迎大家指正。
+       首先简单地理...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/luyan_abaci">来自：	<span class="blog_title"> luyan的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/beiminglei/article/details/13776013,BlogCommendHotData_10"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/beiminglei/article/details/13776013" target="_blank" title="Genymotion配置及使用教程（最新最完整版附各部分下载地址）">
+				<h4 class="text-truncate oneline">
+						Genymotion配置及使用教程（最新最完整版附各部分下载地址）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">10-31</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							10万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/beiminglei/article/details/13776013" target="_blank" title="Genymotion配置及使用教程（最新最完整版附各部分下载地址）">
+							<span class="desc oneline">Genymotion配置及使用教程（最新最完整版附个部分下载地址）
+早都听说了Genymotion好用，今天才抽空把他配置出来，过程算是很曲折啊，不过好在完成了。而且我发现网上的教程都不怎么全，我还是...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/beiminglei">来自：	<span class="blog_title"> 代码改变世界</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_11"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<h4 class="text-truncate oneline">
+						强连通分量及缩点tarjan算法解析				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-16</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							61万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+							<span class="desc oneline">强连通分量：
+简言之 就是找环（每条边只走一次，两两可达）
+孤立的一个点也是一个连通分量 
+ 
+使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点）
+ 
+定义：
+int Ti...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/guang_mang/article/details/78724142,BlogCommendHotData_12"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/guang_mang/article/details/78724142" target="_blank" title="sklearn因子分析（python）">
+				<h4 class="text-truncate oneline">
+						sklearn因子分析（python）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">12-07</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/guang_mang/article/details/78724142" target="_blank" title="sklearn因子分析（python）">
+							<span class="desc oneline">因子分析
+
+因子分析（Factor Analysis）是指研究从变量群中提取共性因子的统计技术，这里的共性因子指的是不同变量之间内在的隐藏因子。例如，一个学生的英语、数据、语文成绩都很好，那么潜在的共...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/guang_mang">来自：	<span class="blog_title"> guang_mang的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36523667/article/details/79242952,BlogCommendHotData_13"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qq_36523667/article/details/79242952" target="_blank" title="Android事件分发机制之源码完美解析（上）">
+				<h4 class="text-truncate oneline">
+						Android事件分发机制之源码完美解析（上）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-03</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qq_36523667/article/details/79242952" target="_blank" title="Android事件分发机制之源码完美解析（上）">
+							<span class="desc oneline">学事件分发是为了什么呢？还不是为了解决滑动冲突的。
+实际上，如果仅仅是为了解决滑动冲突的，大可不必看源码，只需要掌握事件分发的外在规律即可。
+
+
+只要记住这张图，再明白内部拦截法和外部拦截法，滑动冲突...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qq_36523667">来自：	<span class="blog_title"> qq_36523667的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/crazy1235/article/details/43898451,BlogCommendHotData_14"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/crazy1235/article/details/43898451" target="_blank" title="百度地图开发（三）之地图控制 + 定位">
+				<h4 class="text-truncate oneline">
+						百度地图开发（三）之地图控制 + 定位				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-21</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/crazy1235/article/details/43898451" target="_blank" title="百度地图开发（三）之地图控制 + 定位">
+							<span class="desc oneline">转载请注明出处：
+    前两篇关于百度地图的blog写的是，一些基本图层的展示 和 覆盖物的添加+地理编码和反地理编码。
+    接下来，这篇blog主要说一些关于地图控制方面的内容和定位功能。
+ ...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/crazy1235">来自：	<span class="blog_title"> crazy_jack</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_15"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<h4 class="text-truncate oneline">
+						file_get_contents 得到https类型url失败的方法				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-18</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							2万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+							<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/crazy1235/article/details/44069267,BlogCommendHotData_16"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/crazy1235/article/details/44069267" target="_blank" title="百度地图开发（五）之公交信息检索 + 路线规划">
+				<h4 class="text-truncate oneline">
+						百度地图开发（五）之公交信息检索 + 路线规划				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">03-05</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/crazy1235/article/details/44069267" target="_blank" title="百度地图开发（五）之公交信息检索 + 路线规划">
+							<span class="desc oneline">转载请注明出处：
+    在上一篇blog中介绍过POI检索的使用，本篇blog主要介绍公交信息检索和线路规划的内容。
+公交信息检索
+    实际上，公交信息检索与POI检索、在线建议检索非常相似，也...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/crazy1235">来自：	<span class="blog_title"> crazy_jack</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wangyaninglm/article/details/52142217,BlogCommendHotData_17"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/wangyaninglm/article/details/52142217" target="_blank" title="OpenCV+OpenGL 双目立体视觉三维重建">
+				<h4 class="text-truncate oneline">
+						OpenCV+OpenGL 双目立体视觉三维重建				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-08</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							5万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/wangyaninglm/article/details/52142217" target="_blank" title="OpenCV+OpenGL 双目立体视觉三维重建">
+							<span class="desc oneline">0.绪论这篇文章主要为了研究双目立体视觉的最终目标——三维重建，系统的介绍了三维重建的整体步骤。双目立体视觉的整体流程包括：图像获取，摄像机标定，特征提取（稠密匹配中这一步可以省略），立体匹配，三维重...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/wangyaninglm">来自：	<span class="blog_title"> shiter编写程序的艺术</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_18"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<h4 class="text-truncate oneline">
+						python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-31</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							8万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+							<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_19"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<h4 class="text-truncate oneline">
+						DirectX修复工具增强版				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-09</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							199万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+							<span class="desc oneline">最后更新：2018-12-20
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189M...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/iloveyin/article/details/39998651,BlogCommendHotData_20"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/iloveyin/article/details/39998651" target="_blank" title="腾讯视频解析接口">
+				<h4 class="text-truncate oneline">
+						腾讯视频解析接口				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">10-11</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/iloveyin/article/details/39998651" target="_blank" title="腾讯视频解析接口">
+							<span class="desc oneline">普通流视频（完整视频）
+
+http://vv.video.qq.com/geturl?vid=v00149uf4ir&amp;otype=json
+
+高清视频（分段视频）
+
+1080P-fhd，超...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/iloveyin">来自：	<span class="blog_title"> 专注于互联网架构技术，努力成为一名架构师</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dancing_night/article/details/44852633,BlogCommendHotData_21"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/dancing_night/article/details/44852633" target="_blank" title="x264编码----码率控制">
+				<h4 class="text-truncate oneline">
+						x264编码----码率控制				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">04-03</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3183</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/dancing_night/article/details/44852633" target="_blank" title="x264编码----码率控制">
+							<span class="desc oneline">x264是一个 H.264/MPEG4 AVC 编码器，本指南将指导新手如何创建高质量的H.264视频。
+
+    对于普通用户通常有两种码率控制模式：crf（Constant Rate Fact...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/dancing_night">来自：	<span class="blog_title"> dancing_night的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jnulzl/article/details/49894041,BlogCommendHotData_22"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+				<h4 class="text-truncate oneline">
+						史上最好的LDA(线性判别分析)教程				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-17</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+							<span class="desc oneline">一、前言最近由于研究需要，要用到线性判别分析(LDA)。于是找了很多资料来看，结果发现大部分讲的都是理论知识，因此最后还是看的一知半解，后来终于找到了个英文的文档，作者由PCA引入LDA，看过后豁然开...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/jnulzl">来自：	<span class="blog_title"> jnulzl的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lk_blog/article/details/8007777,BlogCommendHotData_23"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/lk_blog/article/details/8007777" target="_blank" title="配置简单功能强大的excel工具类搞定excel导入导出工具类(一)">
+				<h4 class="text-truncate oneline">
+						配置简单功能强大的excel工具类搞定excel导入导出工具类(一)				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">09-22</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							5万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/lk_blog/article/details/8007777" target="_blank" title="配置简单功能强大的excel工具类搞定excel导入导出工具类(一)">
+							<span class="desc oneline">对于J2EE项目导入导出Excel是最普通和实用功能,本工具类使用步骤简单,功能强大,只需要对实体类进行简单的注解就能实现导入导出功能,导入导出操作的都是实体对象.
+请看一下这个类都有哪些功能:
+  ...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/lk_blog">来自：	<span class="blog_title"> 李坤 大米时代 第五期</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/phenixyf/article/details/76090873,BlogCommendHotData_24"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/phenixyf/article/details/76090873" target="_blank" title="按键及矩阵键盘程序------/* 自己实验确认并总结 */">
+				<h4 class="text-truncate oneline">
+						按键及矩阵键盘程序------/* 自己实验确认并总结 */				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">07-25</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							6109</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/phenixyf/article/details/76090873" target="_blank" title="按键及矩阵键盘程序------/* 自己实验确认并总结 */">
+							<span class="desc oneline">新型的按键扫描程序
+
+不过入式处理器上面我在网上游逛了很久，也看过不少源程序了，没有发现这种按键处理办法的踪迹，所以，我将他共享出来，和广大同僚们共勉。我非常坚信这种按键处理办法的便捷和高效，你可以移...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/phenixyf">来自：	<span class="blog_title"> phenixyf的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hero_fantao/article/details/34533533,BlogCommendHotData_25"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/hero_fantao/article/details/34533533" target="_blank" title="连续特征离散化和归一化">
+				<h4 class="text-truncate oneline">
+						连续特征离散化和归一化				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">06-25</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							4万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/hero_fantao/article/details/34533533" target="_blank" title="连续特征离散化和归一化">
+							<span class="desc oneline">连续特征进行离散化处理。</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/hero_fantao">来自：	<span class="blog_title"> hero_fantao的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Smile_qiqi/article/details/32724931,BlogCommendHotData_26"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/Smile_qiqi/article/details/32724931" target="_blank" title="魔兽争霸3冰封王座1.24e 多开联机补丁 信息发布与收集点">
+				<h4 class="text-truncate oneline">
+						魔兽争霸3冰封王座1.24e 多开联机补丁 信息发布与收集点				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">06-20</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/Smile_qiqi/article/details/32724931" target="_blank" title="魔兽争霸3冰封王座1.24e 多开联机补丁 信息发布与收集点">
+							<span class="desc oneline">畅所欲言！</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/Smile_qiqi">来自：	<span class="blog_title"> Smile_qiqi的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mannhello/article/details/5851744,BlogCommendHotData_27"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/mannhello/article/details/5851744" target="_blank" title="调试Release版本应用程序（转）">
+				<h4 class="text-truncate oneline">
+						调试Release版本应用程序（转）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">08-31</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1453</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/mannhello/article/details/5851744" target="_blank" title="调试Release版本应用程序（转）">
+							<span class="desc oneline"> 
+引言如果在您的开发过程中遇到了常见的错误，或许您的Release版本不能正常运行而Debug版本运行无误，那么我推荐您阅读本文：因为并非如您想象的那样，Release版本可以保证您的应用程序可以...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/mannhello">来自：	<span class="blog_title"> MannHello的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weicao1990/article/details/53379881,BlogCommendHotData_28"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/weicao1990/article/details/53379881" target="_blank" title="opencv视频操作基础---VideoCapture类">
+				<h4 class="text-truncate oneline">
+						opencv视频操作基础---VideoCapture类				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">11-28</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							5万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/weicao1990/article/details/53379881" target="_blank" title="opencv视频操作基础---VideoCapture类">
+							<span class="desc oneline">    opencv中通过VideoCaptrue类对视频进行读取操作以及调用摄像头，下面是该类的API。1.VideoCapture类的构造函数：C++: VideoCapture::VideoCa...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/weicao1990">来自：	<span class="blog_title"> 洪流之源</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Tiaaaaa/article/details/58116346,BlogCommendHotData_29"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/Tiaaaaa/article/details/58116346" target="_blank" title="R语言逻辑回归、ROC曲线和十折交叉验证">
+				<h4 class="text-truncate oneline">
+						R语言逻辑回归、ROC曲线和十折交叉验证				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">02-27</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							5万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/Tiaaaaa/article/details/58116346" target="_blank" title="R语言逻辑回归、ROC曲线和十折交叉验证">
+							<span class="desc oneline">自己整理编写的逻辑回归模板，作为学习笔记记录分享。数据集用的是14个自变量Xi，一个因变量Y的australian数据集。
+
+
+1. 测试集和训练集3、7分组
+australian ...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/Tiaaaaa">来自：	<span class="blog_title"> Tiaaaaa的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qth515/article/details/54601413,BlogCommendHotData_30"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/qth515/article/details/54601413" target="_blank" title="扩展卡尔曼滤波（EKF）仿真">
+				<h4 class="text-truncate oneline">
+						扩展卡尔曼滤波（EKF）仿真				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">01-18</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							3677</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/qth515/article/details/54601413" target="_blank" title="扩展卡尔曼滤波（EKF）仿真">
+							<span class="desc oneline">假设离散时间状态空间模型为：
+                                                                                     ...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/qth515">来自：	<span class="blog_title"> MrdotJim的博客</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+    		<div class="recommend-item-box recommend-box-ident type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/rekrad/article/details/7666196,BlogCommendHotData_31"}'>
+			<div class="content">
+				<a href="https://blog.csdn.net/rekrad/article/details/7666196" target="_blank" title="MFC操作excel的一点心得">
+				<h4 class="text-truncate oneline">
+						MFC操作excel的一点心得				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="date-and-readNum oneline">
+						<span class="date hover-show">06-15</span>
+						<span class="read-num hover-hide">
+              阅读数 
+							1万+</span>
+						</p>
+					</div>
+				</a>
+					<p class="content">
+						<a href="https://blog.csdn.net/rekrad/article/details/7666196" target="_blank" title="MFC操作excel的一点心得">
+							<span class="desc oneline">废话不多说，先把步骤列下
+1. 你得安装了microsoft的excel软件，wps是不行的哦 ~　因为只有ms的excel软件才提供了有关的类库
+2. 选中工程，添加类→MFC→Typelib中...</span>
+						</a>
+						  <span class="blog_title_box oneline ">
+							                <span class="type-show type-show-blog type-show-after">博文</span>
+                                  <a target="_blank" href="https://blog.csdn.net/rekrad">来自：	<span class="blog_title"> rekrad的专栏</span></a>
+                							              </span>
+					</p>
+			</div>
+					</div>
+	
+    
+    
+        <div class="recommend-item-box type_hot_word">
+            <div class="content clearfix">
+        <div class="word float-left">
+                          <span>
+            <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+            设计制作学习          </a></span>
+                                  <span>
+            <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+            机器学习教程          </a></span>
+                                  <span>
+            <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+            Objective-C培训          </a></span>
+                                  <span>
+            <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+            交互设计视频教程          </a></span>
+                                  <span>
+            <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+            颜色模型          </a></span>
+                        </div>
+      </div>
+                  <div class="content clearfix">
+        <div class="float-left">
+                  <span>
+            <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+            mysql关联查询两次本表</a>
+          </span>
+                  <span>
+            <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+            native底部 react</a>
+          </span>
+                  <span>
+            <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+            extjs glyph 图标</a>
+          </span>
+                  <span>
+            <a href="https://www.csdn.net/gather_4a/NtjaAg5sNjQtZWR1.html" target="_blank">
+            java设计学习界面</a>
+          </span>
+                  <span>
+            <a href="https://www.csdn.net/gather_4a/MtzacgwsMDQtZWR1.html" target="_blank">
+            使用ios来添加课程表</a>
+          </span>
+                </div>
+      </div>
+          </div>
+
+
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/a10929">
+              <img src="https://avatar.csdn.net/B/F/8/3_a10929.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/3.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/a10929" target="_blank" class="" id="uid">thinkZHU-</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="11">
+                        <dt><a href="https://blog.csdn.net/a10929?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/a10929?t=1"><span class="count">11</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="7">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">7</span></dd>
+        </dl>
+        <dl class="text-center" title="14">
+            <dt>喜欢</dt>
+            <dd><span class="count">14</span></dd>
+        </dl>
+        <dl class="text-center" title="5">
+            <dt>评论</dt>
+            <dd><span class="count">5</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="46896">
+                4万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="346">
+                346            </dd>
+        </dl>
+        <dl title="277722">
+            <dt>排名：</dt>
+            <dd>27万+</dd>
+        </dl>
+    </div>
+    </div>
+		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <div id="kp_box_56" data-pid="56" data-track-view='{"mod":"kp_popu_56-703","con":",,"}' data-track-click='{"mod":"kp_popu_56-703","con":",,"}'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 博客内页左上视窗-20181120 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1076724771190722"
+     data-ad-slot="7700527946"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/a10929/article/details/78910312" target="_blank">Qt实现二值细胞图像区域上色</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/a10929/article/details/78299189" target="_blank">Anaconda安装心得</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/a10929/article/details/78235793" target="_blank">源文件字符集，编译器内部字符集，执行字符集，控制台乱码问题，Qt中文问题</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/a10929/article/details/78209412" target="_blank">字符集，代码页，字符编码</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/a10929/article/details/78171483" target="_blank">使用cl.exe在windows控制台下编译C++程序</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/a10929/article/category/7189150">
+                    <span class="title oneline">Qt笔记</span>
+                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/a10929/article/category/7210711">
+                    <span class="title oneline">c++</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/a10929/article/category/7238947">
+                    <span class="title oneline">其他</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/a10929/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/a10929/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/a10929/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/a10929/article/details/78114261">使用Qt Designer来设计界面</a>
+					<p class="read">阅读数 <span>35574</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/a10929/article/details/78164343">Qt exe程序缺少dll的解决方法</a>
+					<p class="read">阅读数 <span>2725</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/a10929/article/details/78066957">QString类的详细用法</a>
+					<p class="read">阅读数 <span>2249</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/a10929/article/details/78299189">Anaconda安装心得</a>
+					<p class="read">阅读数 <span>1489</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/a10929/article/details/78154257">Qt Creator工作目录</a>
+					<p class="read">阅读数 <span>1010</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/a10929/article/details/78299189#comments">Anaconda安装心得</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_41233772" class="user-name" target="_blank">qq_41233772：</a>你好，我这么配置后，虚拟环境不好用啊                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/a10929/article/details/78910312#comments">Qt实现二值细胞图像区域上色</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/a10929" class="user-name" target="_blank">a10929：</a>为什么用MFC呢...反正我是不会                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/a10929/article/details/78910312#comments">Qt实现二值细胞图像区域上色</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_41582279" class="user-name" target="_blank">weixin_41582279：</a>[reply]a10929[/reply]
+用MFC写大实验，很痛苦                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/a10929/article/details/78910312#comments">Qt实现二值细胞图像区域上色</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/a10929" class="user-name" target="_blank">a10929：</a>卧槽                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/a10929/article/details/78910312#comments">Qt实现二值细胞图像区域上色</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_41582279" class="user-name" target="_blank">weixin_41582279：</a>从这个学号辨认。。。老哥你也是工大的                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57" data-track-view='{"mod":"kp_popu_57-707","con":",,"}' data-track-click='{"mod":"kp_popu_57-707","con":",,"}'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 博客内页左下视窗-20181130 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1076724771190722"
+     data-ad-slot="1894159733"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+            <div id="dmp_ad_69"><div id="kp_box_69" data-pid="69" data-track-view='{"mod":"kp_popu_69-796","con":",,"}' data-track-click='{"mod":"kp_popu_69-796","con":",,"}'><div style="float:left;margin-right:5px;border:0px solid #f13d3d;padding:2px 5px 0px 5px;">
+<a href="https://edu.csdn.net/topic/python115?utm_source=ditong" target="_blank" style="color:#f13d3d;font-weight:bold;text-decoration:none;font-size:15px;">Python全栈学习指南</a>
+</div>
+
+<div style="float:left;margin-right:5px;border:0px solid #00BFFF;padding:2px 5px 0px 5px;">
+<a href="https://edu.csdn.net/topic/ai30?utm_source=ditong" target="_blank" style="font-weight:bold;text-decoration:none;font-size:15px;">BAT的AI岗薪资</a>
+</div>
+
+<div style="float:left;margin-right:5px;border:0px solid #f13d3d;padding:2px 5px 0px 5px;">
+<a href="https://www.bagevent.com/event/2586643?bag_track=bk" target="_blank" style="color:#f13d3d;font-weight:bold;text-decoration:none;font-size:15px;">CTA核心技术与应用峰会</a>
+</div>
+
+<div style="float:left;margin-right:5px;border:0px solid #00BFFF;padding:2px 5px 0px 5px;">
+<a href="https://gitbook.cn/gitchat/column/5cc2b3afd575995386d3abc7?utm_source=wzl190429" target="_blank" style="font-weight:bold;text-decoration:none;font-size:15px;">15天共读深度学习</a>
+</div>
+
+<div style="float:left;margin-right:5px;border:0px solid #f13d3d;padding:2px 5px 0px 5px;">
+<a href="https://edu.csdn.net/topic/blockchain10?utm_source=ditong" target="_blank" style="color:#f13d3d;font-weight:bold;text-decoration:none;font-size:15px;">区块链技术解读</a>
+</div>
+
+
+<div style="float:left;">
+<script type="text/javascript" src="//rabc1.iteye.com/common/js/ndr3h.js?b=wosyvccl"></script>
+<!-- 长文字链
+<script type="text/javascript" src="//rabc1.iteye.com/common/5klj5.js?kfxbghx=bx"></script>
+-->
+</div></div></div>            		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <div class="float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                <a class="pulllog-login">登录</a>
+            </div>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>12</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments low-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+										</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/a10929/article/details/78066957" title="QString类的详细用法">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/a10929/article/details/78132785" title="父窗口和父类的一些理解">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/a10929/article/details/78066957" title="QString类的详细用法">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/a10929/article/details/78132785" title="父窗口和父类的一些理解">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 82;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = articleTitles;
+    var ChannelId = 16;
+    var articleId = "78114261";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/a10929/article/details/78114261/";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "使用Qt Designer来设计界面 - thinkZHU-的博客";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+		var highlight = ["\u4f7f\u7528","qt","designer","\u8bbe\u8ba1","\u754c\u9762"];//高亮数组
+		// 相关推荐博主数据
+    var RecommendBlogExpertList = [];
+	var articleType = 1;
+	var CopyrightContent = '本文为博主原创文章，未经博主允许不得转载。';
+    var current_user_name = '';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTit);
+        }
+    })
+</script>
+</body>
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-3bc59f8f2b.js" /></script>
+	
+	<!-- <script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/markdownCopy-5c7fa7386e.js" /></script> -->
+
+
+<script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js?t=20190307095522"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-8752043e22.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-fc7383b956.min.js"></script>
+
+<script src="//g.csdnimg.cn/baidu-search/1.0.0/baidu-search.js"  type="text/javascript"></script>
+
+
+<!-- <script type="text/javascript" src="//g.csdnimg.cn/check-adb/1.0.2/check-adb.js"></script> -->
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

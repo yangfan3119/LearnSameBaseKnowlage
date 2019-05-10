@@ -799,6 +799,36 @@ void frmInput::deleteValue()
 ### 7. 样式设置
 
 ```c++
+    if (currentStyle == "blue") 
+    {	//blue--淡蓝色  
+        changeStyle("#DEF0FE", "#C0DEF6", "#C0DCF2", "#386487");
+    } else if (currentStyle == "dev") 
+    {	//dev--dev风格  
+        changeStyle("#C0D3EB", "#BCCFE7", "#B4C2D7", "#324C6C");
+    } else if (currentStyle == "gray") 
+    {	//gray--灰色  
+        changeStyle("#E4E4E4", "#A2A2A2", "#A9A9A9", "#000000");
+    } else if (currentStyle == "lightgray") 
+    {	//lightgray--浅灰色  
+        changeStyle("#EEEEEE", "#E5E5E5", "#D4D0C8", "#6F6F6F");
+    } else if (currentStyle == "darkgray") 
+    {	//darkgray--深灰色  
+        changeStyle("#D8D9DE", "#C8C8D0", "#A9ACB5", "#5D5C6C");
+    } else if (currentStyle == "black") 
+    {	// black--黑色  
+        changeStyle("#4D4D4D", "#292929", "#D9D9D9", "#CACAD0");
+    } else if (currentStyle == "brown") 
+    {	//brown--灰黑色  
+        changeStyle("#667481", "#566373", "#C2CCD8", "#E7ECF0");
+    } else if (currentStyle == "silvery")
+    {	//silvery--银色
+        changeStyle("#E1E4E6", "#CCD3D9", "#B2B6B9", "#000000");
+    }
+```
+
+
+
+```c++
 void frmInput::changeStyle(QString topColor, QString bottomColor, QString borderColor, QString textColor)
 {
     QStringList qss;
