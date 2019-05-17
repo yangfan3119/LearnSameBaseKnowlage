@@ -245,7 +245,96 @@ Widget::Widget(QWidget *parent) :
 }
 ```
 
+#### 3.1 表格相关
 
+```css
+QTableView , QTableWidget{
+    selection-background-color:#44c767;
+    background-color:white;/*整个表格的背景色，这里为白色*/
+    border:1px solid #E0DDDC;/*边框为1像素，灰色*/
+    gridline-color:lightgray;/*这个是表格的格子线的颜色，为亮灰*/
+}
+/*这里是表格表头样式*/
+QHeaderView::section{
+    background-color:white;/*背景色 白色*/
+    border:0px solid #E0DDDC;/*先把边框宽度设为0，即隐藏所有表头边框*/
+    border-bottom:1px solid #E0DDDC;/*然后只显示下边框，因为上边框和左右边框是整个Table的边框，都显示会有2px的边框宽度*/
+    height:20px;/*表头高度*/
+}
+```
 
+```css
+QScrollBar:vertical{        //垂直滑块整体  
+    background:#FFFFFF;  //背景色  
+    padding-top:20px;    //上预留位置（放置向上箭头）  
+    padding-bottom:20px; //下预留位置（放置向下箭头）  
+    padding-left:3px;    //左预留位置（美观）  
+    padding-right:3px;   //右预留位置（美观）  
+    border-left:1px solid #d7d7d7;
+}//左分割线  
+QScrollBar::handle:vertical{//滑块样式  
+    background:#dbdbdb;  //滑块颜色  
+    border-radius:6px;   //边角圆润  
+    min-height:80px;
+}    //滑块最小高度  
+QScrollBar::handle:vertical:hover{//鼠标触及滑块样式  
+    background:#d0d0d0;
+} //滑块颜色  
+QScrollBar::add-line:vertical{//向下箭头样式  
+    background:url(:/images/resource/images/checkout/down.png) center no-repeat;
+}
+QScrollBar::sub-line:vertical{//向上箭头样式  
+    background:url(:/images/resource/images/checkout/up.png) center no-repeat;
+} 
 
+QScrollBar:horizontal{
+    background:#FFFFFF;
+    padding-top:3px;  
+    padding-bottom:3px;  
+    padding-left:20px;  
+    padding-right:20px;
+}  
+QScrollBar::handle:horizontal{  
+    background:#dbdbdb;  
+    border-radius:6px;  
+    min-width:80px;
+}  
+QScrollBar::handle:horizontal:hover{  
+    background:#d0d0d0;
+}  
+QScrollBar::add-line:horizontal{  
+    background:url(:/images/resource/images/checkout/right.png) center no-repeat;
+}  
+QScrollBar::sub-line:horizontal{  
+    background:url(:/images/resource/images/checkout/left.png) center no-repeat;
+} 
+```
+
+```css
+QHeaderView::down-arrow { 
+	subcontrol-position: center right;
+	image: url(:/sort_down_arrow.png);
+	padding-right: 8px;
+}
+ 
+QHeaderView::up-arrow { 
+	subcontrol-position: center right;
+	image: url(:/sort_up_arrow.png);
+	padding-right: 8px;
+}
+```
+
+**分页样式**
+
+![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20160130202706619)
+
+##### 3.1.1 表列宽
+
+```c++
+ui->tableWidget->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
+ui->tableWidget->horizontalHeader()->setResizeMode(2, QHeaderView::Stretch);
+ui->tableWidget->horizontalHeader()->setResizeMode(3, QHeaderView::ResizeToContents);
+```
+
+![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\1558002741408.png)
 
