@@ -338,3 +338,39 @@ ui->tableWidget->horizontalHeader()->setResizeMode(3, QHeaderView::ResizeToConte
 
 ![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\1558002741408.png)
 
+##### 3.1.2 表设置
+
+```c++
+table_widget->horizontalHeader()->setStretchLastSection(true); //设置充满表宽度
+table_widget->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+table_widget->verticalHeader()->setDefaultSectionSize(10); //设置行高
+table_widget->setFrameShape(QFrame::NoFrame); //设置无边框
+table_widget->setShowGrid(false); //设置不显示格子线
+table_widget->verticalHeader()->setVisible(false); //设置垂直头不可见
+table_widget->setSelectionMode(QAbstractItemView::ExtendedSelection);  //可多选（Ctrl、Shift、  Ctrl+A都可以）
+table_widget->setSelectionBehavior(QAbstractItemView::SelectRows);  //设置选择行为时每次选择一行
+table_widget->setEditTriggers(QAbstractItemView::NoEditTriggers); //设置不可编辑
+table_widget->horizontalHeader()->resizeSection(0,150); //设置表头第一列的宽度为150
+table_widget->horizontalHeader()->setFixedHeight(25); //设置表头的高度
+
+table_widget->setStyleSheet("selection-background-color:lightblue;"); //设置选中背景色
+
+table_widget->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); //设置表头背景色
+
+
+
+//设置水平、垂直滚动条样式
+
+table_widget->horizontalScrollBar()->setStyleSheet("QScrollBar{background:transparent; height:10px;}"
+                                                   "QScrollBar::handle{background:lightgray; border:2px solid transparent; border-radius:5px;}"
+                                                   "QScrollBar::handle:hover{background:gray;}"
+                                                   "QScrollBar::sub-line{background:transparent;}"
+                                                   "QScrollBar::add-line{background:transparent;}");
+
+table_widget->verticalScrollBar()->setStyleSheet("QScrollBar{background:transparent; width: 10px;}"
+                                                 "QScrollBar::handle{background:lightgray; border:2px solid transparent; border-radius:5px;}"
+                                                 "QScrollBar::handle:hover{background:gray;}"
+                                                 "QScrollBar::sub-line{background:transparent;}"
+                                                 "QScrollBar::add-line{background:transparent;}");
+```
+
