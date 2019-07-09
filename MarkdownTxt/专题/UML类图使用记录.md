@@ -12,7 +12,7 @@
 >
 > 实心菱形精密关联不可分，是组合；
 
-![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\2799767-3f16972d7b062110.png)
+![](../mdPic/2799767-3f16972d7b062110.png)
 
 
 
