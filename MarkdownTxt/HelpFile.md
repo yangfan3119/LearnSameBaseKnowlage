@@ -202,19 +202,19 @@ mΩ
 
 # 数学公式——符号篇：
 
-![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\2018041621294865.png)
+![](../MarkdownTxt/mdPic/2018041621294865.png)
 
 
 
-![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20180416213036844.png)
+![](../MarkdownTxt/mdPic/20180416213036844.png)
 
 
 
-![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20180416213119987.png)
+![](../MarkdownTxt/mdPic/20180416213119987.png)
 
 
 
-![](E:\GitHubCode\LearnSameBaseKnowlage\MarkdownTxt\mdPic\20180416213126857.png)
+![](../MarkdownTxt/mdPic/20180416213126857.png)
 
 
 
